@@ -12,6 +12,21 @@
 @implementation GameLayer
 +(id)scene
 {
-    
+    CCScene *scene=[CCScene node];
+    CCLayer *layer=[GameLayer node];
+    [scene addChild:layer];
+    return scene;
+}
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
+    }
+    return self;
+}
+- (void)dealloc
+{
+    CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
 }
 @end

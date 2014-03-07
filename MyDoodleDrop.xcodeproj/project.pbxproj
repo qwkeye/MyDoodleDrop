@@ -33,7 +33,6 @@
 		DC0C4A1F154AB4DD00B4B727 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = DC0C4A1E154AB4DD00B4B727 /* iTunesArtwork */; };
 		DC0C4B77154AB4DF00B4B727 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4B76154AB4DF00B4B727 /* main.m */; };
 		DC0C4B7A154AB4DF00B4B727 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */; };
-		DC0C4B7D154AB4DF00B4B727 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0C4B7C154AB4DF00B4B727 /* HelloWorldLayer.m */; };
 		DC0C4B88154AB55A00B4B727 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0C4A01154AB4DD00B4B727 /* Foundation.framework */; };
 		DC0C4B92154AB57C00B4B727 /* libcocos2d-library.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0C4B87154AB55A00B4B727 /* libcocos2d-library.a */; };
 		DC0C4C84154AB59800B4B727 /* CCAction.h in Headers */ = {isa = PBXBuildFile; fileRef = DC0C4B95154AB59800B4B727 /* CCAction.h */; };
@@ -293,8 +292,6 @@
 		DC0C4B76154AB4DF00B4B727 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC0C4B78154AB4DF00B4B727 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DC0C4B7B154AB4DF00B4B727 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		DC0C4B7C154AB4DF00B4B727 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		DC0C4B87154AB55A00B4B727 /* libcocos2d-library.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocos2d-library.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0C4B95154AB59800B4B727 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		DC0C4B96154AB59800B4B727 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
@@ -594,8 +591,6 @@
 			children = (
 				DC0C4B78154AB4DF00B4B727 /* AppDelegate.h */,
 				DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */,
-				DC0C4B7B154AB4DF00B4B727 /* HelloWorldLayer.h */,
-				DC0C4B7C154AB4DF00B4B727 /* HelloWorldLayer.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
 				DC0C4B93154AB59800B4B727 /* libs */,
 				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
@@ -1194,7 +1189,6 @@
 			files = (
 				DC0C4B77154AB4DF00B4B727 /* main.m in Sources */,
 				DC0C4B7A154AB4DF00B4B727 /* AppDelegate.m in Sources */,
-				DC0C4B7D154AB4DF00B4B727 /* HelloWorldLayer.m in Sources */,
 				633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
