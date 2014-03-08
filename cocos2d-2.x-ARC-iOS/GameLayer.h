@@ -10,7 +10,8 @@
 #import "cocos2d.h"
 
 @interface GameLayer : CCLayer {
-    
+    CCSprite *player;       //玩家对象
+    CGPoint playerVelocity; //玩家的加速度？
 }
 +(id)scene;
 @end

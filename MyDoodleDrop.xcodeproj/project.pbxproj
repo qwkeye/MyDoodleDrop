@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
+		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
 		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
 		DC0864B815BD8CE60044A820 /* CCNode+Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = DC0864B515BD8CE60044A820 /* CCNode+Debug.h */; };
 		DC0864B915BD8CE60044A820 /* CCNode+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B615BD8CE60044A820 /* CCNode+Debug.m */; };
@@ -261,6 +263,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6339E2A218CA6BBD002638F3 /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
+		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		633D8CBA18C9DF2B00838713 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		DC0864B515BD8CE60044A820 /* CCNode+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+Debug.h"; sourceTree = "<group>"; };
@@ -603,6 +607,8 @@
 		DC0C4A08154AB4DD00B4B727 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6339E2A218CA6BBD002638F3 /* alien-hd.png */,
+				6339E2A318CA6BBD002638F3 /* alien.png */,
 				DC0C4A09154AB4DD00B4B727 /* Default.png */,
 				DC0C4A0B154AB4DD00B4B727 /* fps_images.png */,
 				DC0C4A0D154AB4DD00B4B727 /* fps_images-hd.png */,
@@ -1177,6 +1183,8 @@
 				DC0C4A1A154AB4DD00B4B727 /* Icon.png in Resources */,
 				DC0C4A1C154AB4DD00B4B727 /* Icon@2x.png in Resources */,
 				DC0C4A1F154AB4DD00B4B727 /* iTunesArtwork in Resources */,
+				6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */,
+				6339E2A518CA6BBD002638F3 /* alien.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
