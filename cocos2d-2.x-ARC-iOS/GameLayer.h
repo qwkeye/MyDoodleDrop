@@ -11,10 +11,10 @@
 
 @interface GameLayer : CCLayer {
     CCSprite *player;       //玩家对象
-    CGPoint playerVelocity; //玩家的加速度？
+    CGPoint playerVelocity; //玩家移动的速度
     NSMutableArray *spiders;//蜘蛛数组
-    float spiderMoveDuration;
-    int numSpidersMoved;
+    float spiderMoveDuration;//蜘蛛从顶端掉到底端的时间
+    int numSpidersMoved;//移动的蜘蛛数
 }
 +(id)scene;
 @end
