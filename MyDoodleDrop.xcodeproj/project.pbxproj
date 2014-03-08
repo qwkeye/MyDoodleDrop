@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860718CAAE390066E3A5 /* spider-hd.png */; };
+		4AD5860A18CAAE390066E3A5 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860818CAAE390066E3A5 /* spider.png */; };
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
 		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
 		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
@@ -263,6 +265,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AD5860718CAAE390066E3A5 /* spider-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-hd.png"; sourceTree = "<group>"; };
+		4AD5860818CAAE390066E3A5 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
 		6339E2A218CA6BBD002638F3 /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
 		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
@@ -595,11 +599,11 @@
 			children = (
 				DC0C4B78154AB4DF00B4B727 /* AppDelegate.h */,
 				DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */,
-				DC0C4A08154AB4DD00B4B727 /* Resources */,
-				DC0C4B93154AB59800B4B727 /* libs */,
-				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
 				633D8CB918C9DF2B00838713 /* GameLayer.h */,
 				633D8CBA18C9DF2B00838713 /* GameLayer.m */,
+				DC0C4B93154AB59800B4B727 /* libs */,
+				DC0C4A08154AB4DD00B4B727 /* Resources */,
+				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
 			);
 			path = "cocos2d-2.x-ARC-iOS";
 			sourceTree = "<group>";
@@ -610,9 +614,9 @@
 				6339E2A218CA6BBD002638F3 /* alien-hd.png */,
 				6339E2A318CA6BBD002638F3 /* alien.png */,
 				DC0C4A09154AB4DD00B4B727 /* Default.png */,
-				DC0C4A0B154AB4DD00B4B727 /* fps_images.png */,
 				DC0C4A0D154AB4DD00B4B727 /* fps_images-hd.png */,
 				DC0C4A0F154AB4DD00B4B727 /* fps_images-ipadhd.png */,
+				DC0C4A0B154AB4DD00B4B727 /* fps_images.png */,
 				DC0C4A11154AB4DD00B4B727 /* Icon-72.png */,
 				DC0C4A13154AB4DD00B4B727 /* Icon-Small-50.png */,
 				DC0C4A15154AB4DD00B4B727 /* Icon-Small.png */,
@@ -621,6 +625,8 @@
 				DC0C4A1B154AB4DD00B4B727 /* Icon@2x.png */,
 				DC0C4A1D154AB4DD00B4B727 /* Info.plist */,
 				DC0C4A1E154AB4DD00B4B727 /* iTunesArtwork */,
+				4AD5860718CAAE390066E3A5 /* spider-hd.png */,
+				4AD5860818CAAE390066E3A5 /* spider.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1185,6 +1191,8 @@
 				DC0C4A1F154AB4DD00B4B727 /* iTunesArtwork in Resources */,
 				6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */,
 				6339E2A518CA6BBD002638F3 /* alien.png in Resources */,
+				4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */,
+				4AD5860A18CAAE390066E3A5 /* spider.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

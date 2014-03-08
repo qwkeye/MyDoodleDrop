@@ -34,12 +34,52 @@
         player.position=CGPointMake(screenSize.width/2, imageHeight/2);
         //开始自动更新
         [self scheduleUpdate];
+        [self initSpiders];
     }
     return self;
 }
 - (void)dealloc
 {
     CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
+}
+-(void)initSpiders
+{
+    //获得屏幕的尺寸
+    CGSize screenSize=[CCDirector sharedDirector].winSize;
+    //创建一个临时的蜘蛛
+    CCSprite *tempSpider=[CCSprite spriteWithFile:@"spider.png"];
+    //获得蜘蛛的宽度
+    float imageWidth=tempSpider.texture.contentSize.width;
+    //计算屏幕可以摆下几个蜘蛛
+    int numSpiders=screenSize.width/imageWidth;
+    //创建蜘蛛数组
+    spiders=[NSMutableArray arrayWithCapacity:numSpiders];
+    //初始化每个蜘蛛
+    for (int i=0; i<numSpiders; i++) {
+        //创建蜘蛛精灵
+        CCSprite *spider=[CCSprite spriteWithFile:@"spider.png"];
+        //蜘蛛加入到场景中
+        [self addChild:spider z:0 tag:2];
+        //蜘蛛精灵放到数组中
+        [spiders addObject:spider];
+    }
+    //重新摆放蜘蛛位置
+    [self resetSpiders];
+}
+-(void)resetSpiders
+{
+    CGSize screenSize=[CCDirector sharedDirector].winSize;
+    CCSprite *tempSpider=[spiders lastObject];
+    CGSize size=tempSpider.texture.contentSize;
+    int numSpiders=[spiders count];
+    for (int i=0; i<numSpiders; i++) {
+        CCSprite *spider=[spiders objectAtIndex:i];
+        spider.position=CGPointMake(size.width*i+size.width*0.5f, screenSize.height+size.height);
+        [spider stopAllActions];
+    }
+    [self schedule:@selector(spidersUpdate:) interval:0.7f];
+    numSpidersMoved=0;
+    spiderMoveDuration=4.0f;
 }
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
