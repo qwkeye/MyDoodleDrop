@@ -12,6 +12,8 @@
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
 		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
 		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
+		6351136C18CE341600A8AFB7 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351136B18CE341600A8AFB7 /* MainScreen.m */; };
+		6351136F18CE3DA100A8AFB7 /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351136E18CE3DA100A8AFB7 /* LoadingScene.m */; };
 		63B947DD18CCAD2B00779082 /* bitmapfont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */; };
 		63B947DE18CCAD2B00779082 /* bitmapfont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B947DA18CCAD2B00779082 /* bitmapfont-hd.png */; };
 		63B947DF18CCAD2B00779082 /* bitmapfont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 63B947DB18CCAD2B00779082 /* bitmapfont.fnt */; };
@@ -277,6 +279,10 @@
 		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		633D8CBA18C9DF2B00838713 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		6351136A18CE341600A8AFB7 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
+		6351136B18CE341600A8AFB7 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
+		6351136D18CE3DA100A8AFB7 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
+		6351136E18CE3DA100A8AFB7 /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
 		63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bitmapfont-hd.fnt"; sourceTree = "<group>"; };
 		63B947DA18CCAD2B00779082 /* bitmapfont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapfont-hd.png"; sourceTree = "<group>"; };
 		63B947DB18CCAD2B00779082 /* bitmapfont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapfont.fnt; sourceTree = "<group>"; };
@@ -614,6 +620,10 @@
 				633D8CB918C9DF2B00838713 /* GameLayer.h */,
 				633D8CBA18C9DF2B00838713 /* GameLayer.m */,
 				DC0C4B93154AB59800B4B727 /* libs */,
+				6351136D18CE3DA100A8AFB7 /* LoadingScene.h */,
+				6351136E18CE3DA100A8AFB7 /* LoadingScene.m */,
+				6351136A18CE341600A8AFB7 /* MainScreen.h */,
+				6351136B18CE341600A8AFB7 /* MainScreen.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
 				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
 			);
@@ -1230,6 +1240,8 @@
 				DC0C4B77154AB4DF00B4B727 /* main.m in Sources */,
 				DC0C4B7A154AB4DF00B4B727 /* AppDelegate.m in Sources */,
 				633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */,
+				6351136C18CE341600A8AFB7 /* MainScreen.m in Sources */,
+				6351136F18CE3DA100A8AFB7 /* LoadingScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
