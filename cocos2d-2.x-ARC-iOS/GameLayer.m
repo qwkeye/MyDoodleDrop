@@ -47,7 +47,7 @@
         [self addChild:scoreLabel z:-1];
         //播放背景音乐
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
-        //预加载声音
+        //预加载声音，以避免初始使用声音时出现一点延迟
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"alien-sfx.caf"];
     }
     return self;

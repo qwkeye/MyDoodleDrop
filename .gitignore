@@ -15,6 +15,6 @@ profile
 DerivedData
 *.hmap
 *.ipa
-*/UserInterfaceState.xcuserstate
+
 # CocoaPods
 Pods
