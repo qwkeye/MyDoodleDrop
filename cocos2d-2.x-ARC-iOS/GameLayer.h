@@ -15,6 +15,9 @@
     NSMutableArray *spiders;//蜘蛛数组
     float spiderMoveDuration;//蜘蛛从顶端掉到底端的时间
     int numSpidersMoved;//移动的蜘蛛数
+    
+    int score;//玩家的分数
+    CCNode<CCLabelProtocol>* scoreLabel;//用于显示分数的标签
 }
 +(id)scene;
 @end

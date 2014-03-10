@@ -12,6 +12,12 @@
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
 		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
 		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
+		63B947DD18CCAD2B00779082 /* bitmapfont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */; };
+		63B947DE18CCAD2B00779082 /* bitmapfont-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B947DA18CCAD2B00779082 /* bitmapfont-hd.png */; };
+		63B947DF18CCAD2B00779082 /* bitmapfont.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 63B947DB18CCAD2B00779082 /* bitmapfont.fnt */; };
+		63B947E018CCAD2B00779082 /* bitmapfont.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B947DC18CCAD2B00779082 /* bitmapfont.png */; };
+		63B947E318CCC1F900779082 /* alien-sfx.caf in Resources */ = {isa = PBXBuildFile; fileRef = 63B947E118CCAF2B00779082 /* alien-sfx.caf */; };
+		63B947E418CCC1F900779082 /* blues.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63B947E218CCAF2B00779082 /* blues.mp3 */; };
 		DC0864B815BD8CE60044A820 /* CCNode+Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = DC0864B515BD8CE60044A820 /* CCNode+Debug.h */; };
 		DC0864B915BD8CE60044A820 /* CCNode+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B615BD8CE60044A820 /* CCNode+Debug.m */; };
 		DC0864BA15BD8CE60044A820 /* ccCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B715BD8CE60044A820 /* ccCArray.m */; };
@@ -271,6 +277,12 @@
 		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		633D8CBA18C9DF2B00838713 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "bitmapfont-hd.fnt"; sourceTree = "<group>"; };
+		63B947DA18CCAD2B00779082 /* bitmapfont-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitmapfont-hd.png"; sourceTree = "<group>"; };
+		63B947DB18CCAD2B00779082 /* bitmapfont.fnt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bitmapfont.fnt; sourceTree = "<group>"; };
+		63B947DC18CCAD2B00779082 /* bitmapfont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapfont.png; sourceTree = "<group>"; };
+		63B947E118CCAF2B00779082 /* alien-sfx.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alien-sfx.caf"; sourceTree = "<group>"; };
+		63B947E218CCAF2B00779082 /* blues.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blues.mp3; sourceTree = "<group>"; };
 		DC0864B515BD8CE60044A820 /* CCNode+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+Debug.h"; sourceTree = "<group>"; };
 		DC0864B615BD8CE60044A820 /* CCNode+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+Debug.m"; sourceTree = "<group>"; };
 		DC0864B715BD8CE60044A820 /* ccCArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccCArray.m; sourceTree = "<group>"; };
@@ -611,6 +623,12 @@
 		DC0C4A08154AB4DD00B4B727 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				63B947E118CCAF2B00779082 /* alien-sfx.caf */,
+				63B947E218CCAF2B00779082 /* blues.mp3 */,
+				63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */,
+				63B947DA18CCAD2B00779082 /* bitmapfont-hd.png */,
+				63B947DB18CCAD2B00779082 /* bitmapfont.fnt */,
+				63B947DC18CCAD2B00779082 /* bitmapfont.png */,
 				6339E2A218CA6BBD002638F3 /* alien-hd.png */,
 				6339E2A318CA6BBD002638F3 /* alien.png */,
 				DC0C4A09154AB4DD00B4B727 /* Default.png */,
@@ -1178,6 +1196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63B947E318CCC1F900779082 /* alien-sfx.caf in Resources */,
+				63B947E418CCC1F900779082 /* blues.mp3 in Resources */,
 				DC0C4A0A154AB4DD00B4B727 /* Default.png in Resources */,
 				DC0C4A0C154AB4DD00B4B727 /* fps_images.png in Resources */,
 				DC0C4A0E154AB4DD00B4B727 /* fps_images-hd.png in Resources */,
@@ -1193,6 +1213,10 @@
 				6339E2A518CA6BBD002638F3 /* alien.png in Resources */,
 				4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */,
 				4AD5860A18CAAE390066E3A5 /* spider.png in Resources */,
+				63B947DD18CCAD2B00779082 /* bitmapfont-hd.fnt in Resources */,
+				63B947DE18CCAD2B00779082 /* bitmapfont-hd.png in Resources */,
+				63B947DF18CCAD2B00779082 /* bitmapfont.fnt in Resources */,
+				63B947E018CCAD2B00779082 /* bitmapfont.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
