@@ -17,7 +17,7 @@
         //创建菜单
         CGSize screenSize=[CCDirector sharedDirector].winSize;
         //设置菜单项的字体名称
-        [CCMenuItemFont setFontName:@"Arial"];
+        [CCMenuItemFont setFontName:@"Marker Felt"];
         //设置菜单项的字体大小
         [CCMenuItemFont setFontSize:42];
         //创建菜单项，并指定处理的方法

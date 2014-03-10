@@ -8,7 +8,7 @@
 
 #import "LoadingScene.h"
 #import "MainScreen.h"
-#import "GameLayer.h"
+#import "LevelA01.h"
 
 @implementation LoadingScene
 +(id)sceneWithTargetScene:(TargetSceneTypes)sceneType
@@ -42,7 +42,7 @@
             break;
         case TargetSceneGame:
             //加载游戏
-            [[CCDirector sharedDirector] replaceScene:[GameLayer scene]];
+            [[CCDirector sharedDirector] replaceScene:[LevelA01 scene]];
             break;
         case TargetSceneAbout:
             CCLOG(@"show about screen!");

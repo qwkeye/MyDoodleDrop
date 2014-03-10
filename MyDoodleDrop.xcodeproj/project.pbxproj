@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4ACD52FA18CDF41B00C8A352 /* LevelA01.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD52F918CDF41B00C8A352 /* LevelA01.m */; };
 		4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860718CAAE390066E3A5 /* spider-hd.png */; };
 		4AD5860A18CAAE390066E3A5 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860818CAAE390066E3A5 /* spider.png */; };
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
@@ -273,6 +274,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4ACD52F818CDF41B00C8A352 /* LevelA01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelA01.h; sourceTree = "<group>"; };
+		4ACD52F918CDF41B00C8A352 /* LevelA01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelA01.m; sourceTree = "<group>"; };
 		4AD5860718CAAE390066E3A5 /* spider-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-hd.png"; sourceTree = "<group>"; };
 		4AD5860818CAAE390066E3A5 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
 		6339E2A218CA6BBD002638F3 /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
@@ -578,6 +581,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4ACD52F618CDF33D00C8A352 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				4ACD52F818CDF41B00C8A352 /* LevelA01.h */,
+				4ACD52F918CDF41B00C8A352 /* LevelA01.m */,
+			);
+			name = Levels;
+			sourceTree = "<group>";
+		};
 		DC0C49E6154AB4DD00B4B727 = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +627,7 @@
 		DC0C4A07154AB4DD00B4B727 /* cocos2d-2.x-ARC-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4ACD52F618CDF33D00C8A352 /* Levels */,
 				DC0C4B78154AB4DF00B4B727 /* AppDelegate.h */,
 				DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */,
 				633D8CB918C9DF2B00838713 /* GameLayer.h */,
@@ -1242,6 +1255,7 @@
 				633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */,
 				6351136C18CE341600A8AFB7 /* MainScreen.m in Sources */,
 				6351136F18CE3DA100A8AFB7 /* LoadingScene.m in Sources */,
+				4ACD52FA18CDF41B00C8A352 /* LevelA01.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
