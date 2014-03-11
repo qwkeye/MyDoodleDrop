@@ -47,6 +47,9 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 }
 +(CGPoint) locationFromTouch:(UITouch*)touch
 {
+    //==============================
+    //将触摸事件转换为屏幕坐标？
+    //==============================
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	return [[CCDirector sharedDirector] convertToGL:touchLocation];
 }
