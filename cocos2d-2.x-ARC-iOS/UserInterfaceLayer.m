@@ -11,7 +11,7 @@
 #import "GameLayer.h"
 
 @implementation UserInterfaceLayer
-
+@synthesize score;
 -(id) init
 {
 	if ((self = [super init]))
@@ -31,6 +31,16 @@
 		label.anchorPoint = CGPointMake(0.5f, 1);
 		[self addChild:label];
 		
+        //创建分数标签
+        scoreLabel=[CCLabelBMFont labelWithString:@"0"
+                                          fntFile:@"bitmapfont.fnt"];
+        //分数标签放在屏幕顶端中间位置
+        scoreLabel.position=CGPointMake(screenSize.width/2, screenSize.height-uiframe.texture.contentSize.height);
+        //让分数标签和屏幕顶端对齐
+        scoreLabel.anchorPoint=CGPointMake(0.5f, 1.0f);
+        //讲分数标签加入到场景
+        [self addChild:scoreLabel z:-1];
+        
 		self.isTouchEnabled = YES;
 		//增加一个显示进度的精灵，显示在右下角
         CCSprite* fireSprite = [CCSprite spriteWithFile:@"alien.png"];
@@ -66,6 +76,8 @@
         //复位
 		timer.percentage = 0;
 	}
+    //显示分数
+    [scoreLabel setString:[NSString stringWithFormat:@"%i",score]];
 }
 
 -(void) registerWithTouchDispatcher

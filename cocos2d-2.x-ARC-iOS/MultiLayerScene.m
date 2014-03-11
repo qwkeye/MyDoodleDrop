@@ -41,9 +41,27 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 		// The UserInterfaceLayer remains static and relative to the screen area.
 		UserInterfaceLayer* uiLayer = [UserInterfaceLayer node];
 		[self addChild:uiLayer z:2 tag:LayerTagUILayer];
+        //每0.5秒更新分数
+        [self schedule:@selector(updateScore) interval:0.5f];
 	}
 	
 	return self;
+}
+-(void)updateScore
+{
+    //获得游戏层
+    CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
+    NSAssert1([layer1 isKindOfClass:[LevelA01 class]], @"not a LevelA01", 
+              NSStringFromSelector(_cmd));
+    //转换对象
+    LevelA01* gameLayer=(LevelA01*)layer1;
+    //获得用户界面层
+    CCNode* layer2=[self getChildByTag:LayerTagUILayer];
+    NSAssert1([layer2 isKindOfClass:[UserInterfaceLayer class]], @"not a UserInterfaceLayer", 
+              NSStringFromSelector(_cmd));
+    UserInterfaceLayer* uiLayer=(UserInterfaceLayer*)layer2;
+    //更新分数
+    uiLayer.score=gameLayer.score;
 }
 +(CGPoint) locationFromTouch:(UITouch*)touch
 {
@@ -64,5 +82,4 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     //层即将销毁，为避免崩溃，将其设置为空
 	sharedMultiLayerScene = nil;
 }
-
 @end

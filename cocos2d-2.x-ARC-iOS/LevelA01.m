@@ -10,6 +10,7 @@
 #import "SimpleAudioEngine.h"
 
 @implementation LevelA01
+@synthesize score;
 +(id)scene
 {
     CCScene *scene=[CCScene node];
@@ -36,15 +37,6 @@
         [self scheduleUpdate];
         //重置所有的蜘蛛
         [self initSpiders];
-        //创建分数标签
-        scoreLabel=[CCLabelBMFont labelWithString:@"0"
-                                          fntFile:@"bitmapfont.fnt"];
-        //分数标签放在屏幕顶端中间位置
-        scoreLabel.position=CGPointMake(screenSize.width/2, screenSize.height);
-        //让分数标签和屏幕顶端对齐
-        scoreLabel.anchorPoint=CGPointMake(0.5f, 1.0f);
-        //讲分数标签加入到场景
-        [self addChild:scoreLabel z:-1];
         //播放背景音乐
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
         //预加载声音，以避免初始使用声音时出现一点延迟
@@ -217,8 +209,6 @@
     [self resetSpiders];
     //分数归零
     score=0;
-    //重置显示分数的标签
-    [scoreLabel setString:@"0"];
 }
 -(void)update:(ccTime)delta
 {
@@ -247,8 +237,6 @@
     [self checkForCollision];
     //调试：用总帧数来模拟分数
     score=[CCDirector sharedDirector].totalFrames;
-    //显示分数
-    [scoreLabel setString:[NSString stringWithFormat:@"%i",score]];
 }
 #if DEBUG
 -(void)draw

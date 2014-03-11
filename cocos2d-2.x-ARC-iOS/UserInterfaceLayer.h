@@ -17,9 +17,10 @@ typedef enum
 
 @interface UserInterfaceLayer : CCLayer 
 {
-
+    CCNode<CCLabelProtocol>* scoreLabel;//用于显示分数的标签
 }
 //判断是否处理触控输入
 -(BOOL) isTouchForMe:(CGPoint)touchLocation;
-
+//玩家分数
+@property int score;
 @end
