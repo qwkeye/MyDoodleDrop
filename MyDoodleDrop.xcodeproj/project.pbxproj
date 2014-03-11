@@ -658,15 +658,14 @@
 		DC0C4A08154AB4DD00B4B727 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4ACE36B418CDFEA600E6124F /* ui-frame.png */,
+				6339E2A218CA6BBD002638F3 /* alien-hd.png */,
 				63B947E118CCAF2B00779082 /* alien-sfx.caf */,
-				63B947E218CCAF2B00779082 /* blues.mp3 */,
+				6339E2A318CA6BBD002638F3 /* alien.png */,
 				63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */,
 				63B947DA18CCAD2B00779082 /* bitmapfont-hd.png */,
 				63B947DB18CCAD2B00779082 /* bitmapfont.fnt */,
 				63B947DC18CCAD2B00779082 /* bitmapfont.png */,
-				6339E2A218CA6BBD002638F3 /* alien-hd.png */,
-				6339E2A318CA6BBD002638F3 /* alien.png */,
+				63B947E218CCAF2B00779082 /* blues.mp3 */,
 				DC0C4A09154AB4DD00B4B727 /* Default.png */,
 				DC0C4A0D154AB4DD00B4B727 /* fps_images-hd.png */,
 				DC0C4A0F154AB4DD00B4B727 /* fps_images-ipadhd.png */,
@@ -681,6 +680,7 @@
 				DC0C4A1E154AB4DD00B4B727 /* iTunesArtwork */,
 				4AD5860718CAAE390066E3A5 /* spider-hd.png */,
 				4AD5860818CAAE390066E3A5 /* spider.png */,
+				4ACE36B418CDFEA600E6124F /* ui-frame.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

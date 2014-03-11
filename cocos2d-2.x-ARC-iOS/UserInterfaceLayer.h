@@ -19,7 +19,7 @@ typedef enum
 {
 
 }
-
+//判断是否处理触控输入
 -(BOOL) isTouchForMe:(CGPoint)touchLocation;
 
 @end

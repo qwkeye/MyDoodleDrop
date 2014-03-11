@@ -34,10 +34,10 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 	{
 		NSAssert(sharedMultiLayerScene == nil, @"another MultiLayerScene is already in use!");
 		sharedMultiLayerScene = self;
-        
+        //创建游戏层
 		LevelA01* gameLayer = [LevelA01 node];
 		[self addChild:gameLayer z:1 tag:LayerTagGameLayer];
-		
+		//创建用户界面层
 		// The UserInterfaceLayer remains static and relative to the screen area.
 		UserInterfaceLayer* uiLayer = [UserInterfaceLayer node];
 		[self addChild:uiLayer z:2 tag:LayerTagUILayer];
@@ -58,8 +58,6 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 -(void) dealloc
 {
 	CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
-	
-	// The Layer will be gone now, to avoid crashes on further access it needs to be nil.
     //层即将销毁，为避免崩溃，将其设置为空
 	sharedMultiLayerScene = nil;
 }

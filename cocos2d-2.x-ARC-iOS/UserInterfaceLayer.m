@@ -17,14 +17,15 @@
 	if ((self = [super init]))
 	{
 		CGSize screenSize = [[CCDirector sharedDirector] winSize];
-
+        //创建一个界面背景的精灵
 		CCSprite* uiframe = [CCSprite spriteWithFile:@"ui-frame.png"];
-		uiframe.position = CGPointMake(0, screenSize.height);
-		uiframe.anchorPoint = CGPointMake(0, 1);
+        //居中放置
+		uiframe.position = CGPointMake(screenSize.width/2, screenSize.height);
+        //设置对齐方式
+		uiframe.anchorPoint = CGPointMake(0.5f, 1);
 		[self addChild:uiframe z:0 tag:UILayerTagFrameSprite];
-		
-		// Fake User Interface which does nothing.
-		CCLabelTTF* label = [CCLabelTTF labelWithString:@"Here be your Game Scores etc" fontName:@"Courier" fontSize:22];
+        //一个演示用的标签
+		CCLabelTTF* label = [CCLabelTTF labelWithString:@"Here be your Game Scores etc" fontName:@"Courier" fontSize:12];
 		label.color = ccBLACK;
 		label.position = CGPointMake(screenSize.width / 2, screenSize.height);
 		label.anchorPoint = CGPointMake(0.5f, 1);
@@ -34,7 +35,7 @@
 		
 		// A progress timer is a sprite which is partially displayed to visualize some kind of progress.
 		// Caution: modifying the anchorPoint of a CCProgressTimer will change the effect or make it disappear completely!
-		CCSprite* fireSprite = [CCSprite spriteWithFile:@"firething.png"];
+		CCSprite* fireSprite = [CCSprite spriteWithFile:@"alien.png"];
 		CCProgressTimer* timer = [CCProgressTimer progressWithSprite:fireSprite];
 		timer.type = kCCProgressTimerTypeRadial;
 		timer.position = CGPointMake([CCDirector sharedDirector].winSize.width, 0);
@@ -77,6 +78,10 @@
 // Implements logic to check if the touch location was in an area that this layer wants to handle as input.
 -(BOOL) isTouchForMe:(CGPoint)touchLocation
 {
+    //==============================
+    //检查用户的触控点是否在本层需要处理的
+    //范围之内
+    //==============================
 	CCNode* node = [self getChildByTag:UILayerTagFrameSprite];
 	return CGRectContainsPoint([node boundingBox], touchLocation);
 }

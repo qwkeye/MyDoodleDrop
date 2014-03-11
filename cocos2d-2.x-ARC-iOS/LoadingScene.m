@@ -9,6 +9,7 @@
 #import "LoadingScene.h"
 #import "MainScreen.h"
 #import "LevelA01.h"
+#import "MultiLayerScene.h"
 
 @implementation LoadingScene
 +(id)sceneWithTargetScene:(TargetSceneTypes)sceneType
@@ -27,6 +28,7 @@
         CGSize size=[CCDirector sharedDirector].winSize;
         label.position=CGPointMake(size.width/2, size.height/2);
         [self addChild:label];
+        
         //设定下一帧才开始加载真正的场景
         [self scheduleOnce:@selector(loadScene:) delay:0.0f];
     }
@@ -42,7 +44,7 @@
             break;
         case TargetSceneGame:
             //加载游戏
-            [[CCDirector sharedDirector] replaceScene:[LevelA01 scene]];
+            [[CCDirector sharedDirector] replaceScene:[MultiLayerScene scene]];
             break;
         case TargetSceneAbout:
             CCLOG(@"show about screen!");
