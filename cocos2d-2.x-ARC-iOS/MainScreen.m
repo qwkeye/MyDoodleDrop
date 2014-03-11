@@ -36,6 +36,10 @@
         //设置菜单项的间隔
         [menu alignItemsVerticallyWithPadding:40];
         
+        //添加过渡的背景色
+        CCLayerGradient* gradient=[CCLayerGradient layerWithColor:ccc4(0,150,255,255)
+                                                         fadingTo:ccc4(0255,150,50,255)];
+        [self addChild:gradient z:-1];
     }
     return self;
 }
