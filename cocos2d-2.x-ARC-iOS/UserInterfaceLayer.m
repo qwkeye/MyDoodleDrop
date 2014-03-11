@@ -32,20 +32,17 @@
 		[self addChild:label];
 		
 		self.isTouchEnabled = YES;
-		
-		// A progress timer is a sprite which is partially displayed to visualize some kind of progress.
-		// Caution: modifying the anchorPoint of a CCProgressTimer will change the effect or make it disappear completely!
-		CCSprite* fireSprite = [CCSprite spriteWithFile:@"alien.png"];
+		//增加一个显示进度的精灵，显示在右下角
+        CCSprite* fireSprite = [CCSprite spriteWithFile:@"alien.png"];
 		CCProgressTimer* timer = [CCProgressTimer progressWithSprite:fireSprite];
 		timer.type = kCCProgressTimerTypeRadial;
 		timer.position = CGPointMake([CCDirector sharedDirector].winSize.width, 0);
 		timer.anchorPoint = CGPointMake(1, 0); // right-align and bottom-align timer
 		timer.percentage = 0;
 		timer.color = ccGRAY;
-		timer.scale = 1.7f;
+		//timer.scale = 1.7f;//精灵放大的倍数
 		[self addChild:timer z:1 tag:UILayerTagProgressTimer];
-		
-		// The update is needed for the progress timer.
+        //增加了进度精灵，则需要定时更新
 		[self scheduleUpdate];
 	}
 	return self;
@@ -61,11 +58,12 @@
 {
 	CCNode* node = [self getChildByTag:UILayerTagProgressTimer];
 	NSAssert([node isKindOfClass:[CCProgressTimer class]], @"node is not a CCProgressTimer");
-	
+	//更新进度
 	CCProgressTimer* timer = (CCProgressTimer*)node;
 	timer.percentage += delta * 10;
 	if (timer.percentage >= 100)
 	{
+        //复位
 		timer.percentage = 0;
 	}
 }
@@ -75,7 +73,6 @@
 	[[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
 }
 
-// Implements logic to check if the touch location was in an area that this layer wants to handle as input.
 -(BOOL) isTouchForMe:(CGPoint)touchLocation
 {
     //==============================
@@ -93,12 +90,10 @@
 	if (isTouchHandled)
 	{
 		// Simply highlight the UI layer's sprite to show that it received the touch.
+        //设置精灵的背景色为红色，以通知用户收到了触摸事件
 		CCNode* node = [self getChildByTag:UILayerTagFrameSprite];
 		NSAssert([node isKindOfClass:[CCSprite class]], @"node is not a CCSprite");
-		
 		((CCSprite*)node).color = ccRED;
-		
-		
 	}
 
 	return isTouchHandled;
@@ -108,7 +103,7 @@
 {
 	CCNode* node = [self getChildByTag:UILayerTagFrameSprite];
 	NSAssert([node isKindOfClass:[CCSprite class]], @"node is not a CCSprite");
-	
+    //触摸结束后，还原背景色
 	((CCSprite*)node).color = ccWHITE;
 }
 
