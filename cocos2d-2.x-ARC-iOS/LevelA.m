@@ -47,6 +47,7 @@
 - (void)dealloc
 {
     CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
 -(void)initSpiders
 {
@@ -211,17 +212,27 @@
             //播放碰撞音效
             [[SimpleAudioEngine sharedEngine] playEffect:@"alien-sfx.caf"];
             //出现了碰撞，结束游戏
-            [self resetGame];
+            [self showGameOver];
             break;
         }
     }
 }
 -(void)resetGame
 {
-    //重置所有的蜘蛛
-    [self resetSpiders];
-    //分数归零
-    score=0;
+    // prevent screensaver from darkening the screen while the game is played
+	[self setScreenSaverEnabled:NO];
+	// remove game over label & touch to continue label
+	[self removeChildByTag:100 cleanup:YES];
+	[self removeChildByTag:101 cleanup:YES];
+	// re-enable accelerometer
+	self.isAccelerometerEnabled = YES;
+	self.isTouchEnabled = NO;
+	// put all spiders back to top
+	[self resetSpiders];
+	// re-schedule update
+	[self scheduleUpdate];
+	// reset score
+	score = 0;
 }
 
 -(void)update:(ccTime)delta
