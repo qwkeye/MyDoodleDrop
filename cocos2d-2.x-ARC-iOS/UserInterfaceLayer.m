@@ -24,37 +24,41 @@
         //设置对齐方式
 		uiframe.anchorPoint = CGPointMake(0.5f, 1);
 		[self addChild:uiframe z:0 tag:UILayerTagFrameSprite];
-        //一个演示用的标签
-		CCLabelTTF* label = [CCLabelTTF labelWithString:@"Here be your Game Scores etc" fontName:@"Courier" fontSize:12];
-		label.color = ccBLACK;
-		label.position = CGPointMake(screenSize.width / 2, screenSize.height);
-		label.anchorPoint = CGPointMake(0.5f, 1);
-		[self addChild:label];
-		
-        //创建分数标签
-        scoreLabel=[CCLabelBMFont labelWithString:@"0"
-                                          fntFile:@"bitmapfont.fnt"];
-        //分数标签放在屏幕顶端中间位置
-        scoreLabel.position=CGPointMake(screenSize.width/2, screenSize.height-uiframe.texture.contentSize.height);
-        //让分数标签和屏幕顶端对齐
-        scoreLabel.anchorPoint=CGPointMake(0.5f, 1.0f);
-        //讲分数标签加入到场景
-        [self addChild:scoreLabel z:-1];
+        //创建一个菜单
+		//设置菜单项的字体名称
+        [CCMenuItemFont setFontName:@"Marker Felt"];
+        //设置菜单项的字体大小
+        [CCMenuItemFont setFontSize:12];
+        //创建菜单项，并指定处理的方法
+        CCMenuItemFont* itemPauseResume=[CCMenuItemFont itemWithString:@"Pause"
+                                                            target:self
+                                                          selector:@selector(menuItemPauseResumeTouched)];
+        CCMenuItemFont* itemAbort=[CCMenuItemFont itemWithString:@"Abort"
+                                                          target:self
+                                                        selector:@selector(menuItemAbortTouched)];
+        //创建菜单
+        CCMenu* menu=[CCMenu menuWithItems:itemPauseResume,itemAbort, nil];
+        //设置菜单位置
+        //menu.position=uiframe.position;
+        //加入到场景
+        [uiframe addChild:menu];
+        //设置菜单项的间隔
+        [menu alignItemsHorizontallyWithPadding:4.0f];
         
+        //创建分数标签
+        scoreLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:12];
+        scoreLabel.color=ccWHITE;
+        //分数标签放在屏幕右上角位置
+        scoreLabel.position=CGPointMake(screenSize.width, screenSize.height);
+        //让分数标签和屏幕右边对齐
+        scoreLabel.anchorPoint=CGPointMake(1.0f, 1.0f);
+        //将分数标签加入到场景
+        [self addChild:scoreLabel z:-1];
+        //可以接收触摸事件
 		self.isTouchEnabled = YES;
-		//增加一个显示进度的精灵，显示在右下角
-        CCSprite* fireSprite = [CCSprite spriteWithFile:@"alien.png"];
-		CCProgressTimer* timer = [CCProgressTimer progressWithSprite:fireSprite];
-		timer.type = kCCProgressTimerTypeRadial;
-		timer.position = CGPointMake([CCDirector sharedDirector].winSize.width, 0);
-		timer.anchorPoint = CGPointMake(1, 0); // right-align and bottom-align timer
-		timer.percentage = 0;
-		timer.color = ccGRAY;
-		//timer.scale = 1.7f;//精灵放大的倍数
-		[self addChild:timer z:1 tag:UILayerTagProgressTimer];
-        //增加了进度精灵，则需要定时更新
-		[self scheduleUpdate];
-	}
+        //开始更新
+        [self scheduleUpdate];
+    }
 	return self;
 }
 
@@ -66,16 +70,6 @@
 // Updates the progress timer
 -(void) update:(ccTime)delta
 {
-	CCNode* node = [self getChildByTag:UILayerTagProgressTimer];
-	NSAssert([node isKindOfClass:[CCProgressTimer class]], @"node is not a CCProgressTimer");
-	//更新进度
-	CCProgressTimer* timer = (CCProgressTimer*)node;
-	timer.percentage += delta * 10;
-	if (timer.percentage >= 100)
-	{
-        //复位
-		timer.percentage = 0;
-	}
     //显示分数
     [scoreLabel setString:[NSString stringWithFormat:@"%i",score]];
 }

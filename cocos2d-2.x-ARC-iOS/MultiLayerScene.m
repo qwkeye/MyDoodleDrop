@@ -41,11 +41,16 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 		// The UserInterfaceLayer remains static and relative to the screen area.
 		UserInterfaceLayer* uiLayer = [UserInterfaceLayer node];
 		[self addChild:uiLayer z:2 tag:LayerTagUILayer];
-        //每0.5秒更新分数
-        [self schedule:@selector(updateScore) interval:0.5f];
+        //每0.1秒更新分数
+        [self schedule:@selector(updateScore) interval:0.1f];
+        //[self scheduleUpdate];
 	}
 	
 	return self;
+}
+-(void)update:(ccTime)delta
+{
+    [self updateScore];
 }
 -(void)updateScore
 {
