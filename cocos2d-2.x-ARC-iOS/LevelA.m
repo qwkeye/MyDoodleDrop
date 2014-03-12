@@ -49,11 +49,11 @@
     CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
     [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
 }
+/**
+ *  初始化所有的蜘蛛
+ */
 -(void)initSpiders
 {
-    //==============================
-    //重置所有的蜘蛛
-    //==============================
     //获得屏幕的尺寸
     CGSize screenSize=[CCDirector sharedDirector].winSize;
     //创建一个临时的蜘蛛
@@ -76,11 +76,11 @@
     //重新摆放蜘蛛位置
     [self resetSpiders];
 }
+/**
+ *  重置所有蜘蛛
+ */
 -(void)resetSpiders
 {
-    //==============================
-    //重置所有蜘蛛
-    //==============================
     //获得屏幕尺寸
     CGSize screenSize=[CCDirector sharedDirector].winSize;
     //获得一个蜘蛛
@@ -121,11 +121,13 @@
         }
     }
 }
+/**
+ *  控制蜘蛛运动的动作序列
+ *
+ *  @param spider 蜘蛛对象
+ */
 -(void)runSpiderMoveSequence:(CCSprite*)spider
 {
-    //==============================
-    //控制蜘蛛运动的动作序列
-    //==============================
     //记录已经在运送的蜘蛛的数量
     numSpidersMoved++;
     //让蜘蛛加速落下
@@ -148,10 +150,14 @@
     //蜘蛛执行动作
     [spider runAction:sequence];
 }
-
+/**
+ *  Do something icky with the spiders ...
+ *
+ *  @param spider 蜘蛛对象
+ */
 -(void) runSpiderWiggleSequence:(CCSprite*)spider
 {
-	// Do something icky with the spiders ...
+	//
 	CCScaleTo* scaleUp = [CCScaleTo actionWithDuration:CCRANDOM_0_1() * 2 + 1 scale:1.05f];
 	CCEaseBackInOut* easeUp = [CCEaseBackInOut actionWithAction:scaleUp];
 	CCScaleTo* scaleDown = [CCScaleTo actionWithDuration:CCRANDOM_0_1() * 2 + 1 scale:0.95f];
@@ -181,12 +187,11 @@
         playerVelocity.x=-maxVelocity;
     }
 }
+/**
+ *  检测玩家和蜘蛛是否碰撞，假设玩家和蜘蛛的图像都是正方形
+ */
 -(void)checkForCollision
 {
-    //==============================
-    //检测玩家和蜘蛛是否碰撞，假设玩家
-    //和蜘蛛的图像都是正方形
-    //==============================
     //获得玩家和蜘蛛的图像尺寸
     float playerImageSize=player.texture.contentSize.width;
     CCSprite* spider=[spiders lastObject];
@@ -217,6 +222,9 @@
         }
     }
 }
+/**
+ *  重新开始游戏
+ */
 -(void)resetGame
 {
     // prevent screensaver from darkening the screen while the game is played
@@ -287,14 +295,19 @@
 }
 #endif
 #pragma mark Reset Game
-// The game is played only using the accelerometer. The screen may go dark while playing because the player
-// won't touch the screen. This method allows the screensaver to be disabled during gameplay.
+/**
+ *  he game is played only using the accelerometer. The screen may go dark while playing because the player won't touch the screen. This method allows the screensaver to be disabled during gameplay.
+ *
+ *  @param enabled 是否允许屏保
+ */
 -(void) setScreenSaverEnabled:(bool)enabled
 {
 	UIApplication *thisApp = [UIApplication sharedApplication];
 	thisApp.idleTimerDisabled = !enabled;
 }
-
+/**
+ *  显示游戏结束
+ */
 -(void) showGameOver
 {
 	// Re-enable screensaver, to prevent battery drain in case the user puts the device aside without turning it off.

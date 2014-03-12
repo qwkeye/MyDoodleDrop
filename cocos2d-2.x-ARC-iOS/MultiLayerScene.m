@@ -17,7 +17,7 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 +(MultiLayerScene*) sharedLayer
 {
 	NSAssert(sharedMultiLayerScene != nil, @"MultiLayerScene not available!");
-	return sharedMultiLayerScene;
+        return sharedMultiLayerScene;
 }
 
 +(id) scene
@@ -46,7 +46,9 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 	}
 	return self;
 }
-
+/**
+ *  更新分数值
+ */
 -(void)updateScore
 {
     //获得游戏层
@@ -60,27 +62,37 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     NSAssert1([layer2 isKindOfClass:[UserInterfaceLayer class]], @"not a UserInterfaceLayer", 
               NSStringFromSelector(_cmd));
     UserInterfaceLayer* uiLayer=(UserInterfaceLayer*)layer2;
-    //更新分数
+    //从游戏层获得分数，然后更新分数
     uiLayer.score=gameLayer.score;
 }
+/**
+ *  将一个触摸事件转换为屏幕坐标？
+ *
+ *  @param touch UITouch对象
+ *
+ *  @return 一个CGPoint，代表屏幕坐标
+ */
 +(CGPoint) locationFromTouch:(UITouch*)touch
 {
-    //==============================
-    //将触摸事件转换为屏幕坐标？
-    //==============================
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	return [[CCDirector sharedDirector] convertToGL:touchLocation];
 }
-
+/**
+ *  将多个触摸事件转换为屏幕坐标
+ *
+ *  @param touches 多个UITouch对象
+ *
+ *  @return 一个CGPoint，代表屏幕坐标
+ */
 +(CGPoint) locationFromTouches:(NSSet*)touches
 {
 	return [self locationFromTouch:[touches anyObject]];
 }
+/**
+ *  退出当前关卡，返回主菜单
+ */
 -(void)abortGame
 {
-    //==============================
-    //退出当前关卡，返回主菜单
-    //==============================
     //停止所有更新
     [self unscheduleAllSelectors];
     //销毁各个子对象
