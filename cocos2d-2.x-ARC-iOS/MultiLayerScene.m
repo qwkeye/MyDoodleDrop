@@ -9,7 +9,7 @@
 #import "MultiLayerScene.h"
 #import "LevelA01.h"
 #import "UserInterfaceLayer.h"
-
+#import "LoadingScene.h"
 @implementation MultiLayerScene
 //半单例模式：仅在MultiLayerScene是活动的场景时，才存取 MultiLayerScene。
 static MultiLayerScene* sharedMultiLayerScene = nil;
@@ -43,15 +43,10 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 		[self addChild:uiLayer z:2 tag:LayerTagUILayer];
         //每0.1秒更新分数
         [self schedule:@selector(updateScore) interval:0.1f];
-        //[self scheduleUpdate];
 	}
-	
 	return self;
 }
--(void)update:(ccTime)delta
-{
-    [self updateScore];
-}
+
 -(void)updateScore
 {
     //获得游戏层
@@ -80,6 +75,20 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 +(CGPoint) locationFromTouches:(NSSet*)touches
 {
 	return [self locationFromTouch:[touches anyObject]];
+}
+-(void)abortGame
+{
+    //==============================
+    //退出当前关卡，返回主菜单
+    //==============================
+    //停止所有更新
+    [self unscheduleAllSelectors];
+    //销毁各个子对象
+    [self removeAllChildrenWithCleanup:YES];
+    //指针置空
+    sharedMultiLayerScene=nil;
+    //返回主菜单
+    [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneMain]];
 }
 -(void) dealloc
 {

@@ -13,6 +13,7 @@
 		4ACE36B518CDFEA600E6124F /* ui-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE36B418CDFEA600E6124F /* ui-frame.png */; };
 		4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860718CAAE390066E3A5 /* spider-hd.png */; };
 		4AD5860A18CAAE390066E3A5 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860818CAAE390066E3A5 /* spider.png */; };
+		4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4CC6318D02B60006BC632 /* LevelA.m */; };
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
 		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
 		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
@@ -286,6 +287,8 @@
 		4ACE36B418CDFEA600E6124F /* ui-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-frame.png"; sourceTree = "<group>"; };
 		4AD5860718CAAE390066E3A5 /* spider-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-hd.png"; sourceTree = "<group>"; };
 		4AD5860818CAAE390066E3A5 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
+		4AE4CC6218D02B60006BC632 /* LevelA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelA.h; sourceTree = "<group>"; };
+		4AE4CC6318D02B60006BC632 /* LevelA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelA.m; sourceTree = "<group>"; };
 		6339E2A218CA6BBD002638F3 /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
 		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
@@ -594,6 +597,8 @@
 			children = (
 				4ACD52F818CDF41B00C8A352 /* LevelA01.h */,
 				4ACD52F918CDF41B00C8A352 /* LevelA01.m */,
+				4AE4CC6218D02B60006BC632 /* LevelA.h */,
+				4AE4CC6318D02B60006BC632 /* LevelA.m */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -1272,6 +1277,7 @@
 				4ACD52FA18CDF41B00C8A352 /* LevelA01.m in Sources */,
 				4ACE36AF18CDFA0700E6124F /* MultiLayerScene.m in Sources */,
 				4ACE36B318CDFD8E00E6124F /* UserInterfaceLayer.m in Sources */,
+				4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

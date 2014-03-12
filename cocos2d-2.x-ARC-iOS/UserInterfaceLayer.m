@@ -28,7 +28,7 @@
 		//设置菜单项的字体名称
         [CCMenuItemFont setFontName:@"Marker Felt"];
         //设置菜单项的字体大小
-        [CCMenuItemFont setFontSize:12];
+        [CCMenuItemFont setFontSize:24];
         //创建菜单项，并指定处理的方法
         CCMenuItemFont* itemPauseResume=[CCMenuItemFont itemWithString:@"Pause"
                                                             target:self
@@ -39,9 +39,11 @@
         //创建菜单
         CCMenu* menu=[CCMenu menuWithItems:itemPauseResume,itemAbort, nil];
         //设置菜单位置
-        //menu.position=uiframe.position;
+        menu.position=CGPointMake(
+                                  screenSize.width/2, 
+                                  screenSize.height-uiframe.texture.contentSize.height/2);
         //加入到场景
-        [uiframe addChild:menu];
+        [self addChild:menu];
         //设置菜单项的间隔
         [menu alignItemsHorizontallyWithPadding:4.0f];
         
@@ -61,7 +63,15 @@
     }
 	return self;
 }
-
+-(void)menuItemAbortTouched
+{
+    //退出游戏
+    [[MultiLayerScene sharedLayer] abortGame];
+}
+-(void)menuItemPauseResumeTouched
+{
+    //暂停
+}
 -(void) dealloc
 {
 	CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);

@@ -29,4 +29,5 @@ typedef enum
 // Accessor methods to access the various layers of this scene
 +(MultiLayerScene*) sharedLayer;
 +(id) scene;
+-(void)abortGame;
 @end
