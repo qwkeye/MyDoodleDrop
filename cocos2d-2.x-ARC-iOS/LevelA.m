@@ -8,6 +8,7 @@
 
 #import "LevelA.h"
 #import "SimpleAudioEngine.h"
+#import "Spider.h"
 
 @implementation LevelA
 @synthesize score;

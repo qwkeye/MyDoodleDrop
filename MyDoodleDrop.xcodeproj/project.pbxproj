@@ -14,6 +14,7 @@
 		4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860718CAAE390066E3A5 /* spider-hd.png */; };
 		4AD5860A18CAAE390066E3A5 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860818CAAE390066E3A5 /* spider.png */; };
 		4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4CC6318D02B60006BC632 /* LevelA.m */; };
+		4AFB3B4818D2959C00DC269E /* Spider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFB3B4718D2959C00DC269E /* Spider.m */; };
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
 		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
 		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
@@ -289,6 +290,8 @@
 		4AD5860818CAAE390066E3A5 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
 		4AE4CC6218D02B60006BC632 /* LevelA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelA.h; sourceTree = "<group>"; };
 		4AE4CC6318D02B60006BC632 /* LevelA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelA.m; sourceTree = "<group>"; };
+		4AFB3B4618D2959C00DC269E /* Spider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spider.h; sourceTree = "<group>"; };
+		4AFB3B4718D2959C00DC269E /* Spider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spider.m; sourceTree = "<group>"; };
 		6339E2A218CA6BBD002638F3 /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
 		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
 		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
@@ -653,6 +656,8 @@
 				4ACE36AD18CDFA0700E6124F /* MultiLayerScene.h */,
 				4ACE36AE18CDFA0700E6124F /* MultiLayerScene.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
+				4AFB3B4618D2959C00DC269E /* Spider.h */,
+				4AFB3B4718D2959C00DC269E /* Spider.m */,
 				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
 				4ACE36B118CDFD8E00E6124F /* UserInterfaceLayer.h */,
 				4ACE36B218CDFD8E00E6124F /* UserInterfaceLayer.m */,
@@ -1278,6 +1283,7 @@
 				4ACE36AF18CDFA0700E6124F /* MultiLayerScene.m in Sources */,
 				4ACE36B318CDFD8E00E6124F /* UserInterfaceLayer.m in Sources */,
 				4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */,
+				4AFB3B4818D2959C00DC269E /* Spider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
