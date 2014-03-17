@@ -29,6 +29,8 @@
         //添加一个精灵对象
 		[self addChild:spiderSprite];
 		[self scheduleUpdate];
+        //可以接收触摸事件
+        [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
 	}
 	
 	return self;
@@ -36,8 +38,6 @@
 -(void)stop
 {
     [spiderSprite stopAllActions];
-    //手动注销触摸事件接收器
-	[[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
 }
 -(void)reset
 {
@@ -93,8 +93,6 @@
     //蜘蛛执行动作
     [spiderSprite runAction:sequence];
     isMoving=YES;
-    //可以接收触摸事件
-    [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
 }
 -(CGPoint)getPosition
 {
