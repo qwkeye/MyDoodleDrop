@@ -64,4 +64,8 @@
  *  @return 碰撞半径
  */
 -(float)getCollisionRadius;
+/**
+ *  停止运动
+ */
+-(void)stop;
 @end

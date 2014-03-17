@@ -191,11 +191,15 @@
 	// remove game over label & touch to continue label
 	[self removeChildByTag:100 cleanup:YES];
 	[self removeChildByTag:101 cleanup:YES];
+    //删除所有的蜘蛛
+    for (Spider* s in spiders) {
+        [self removeChild:s cleanup:YES];
+    }
+    spiders=nil;
+    [self initSpiders];
 	// re-enable accelerometer
 	self.isAccelerometerEnabled = YES;
 	self.isTouchEnabled = NO;
-	// put all spiders back to top
-	[self resetSpiders];
 	// re-schedule update
 	[self scheduleUpdate];
 	// reset score
@@ -271,15 +275,11 @@
 {
     //重新允许屏保，以免电池耗尽
 	[self setScreenSaverEnabled:YES];
-	//停止所有的运动
-    for (CCNode* node in self.children)
-	{
-		[node stopAllActions];
-	}
-    //所有蜘蛛复位
-	for (Spider* spider in spiders)
-	{
-        [spider reset];
+	//玩家停止运动
+    [player stopAllActions];
+    //蜘蛛停止运动
+	for (Spider* spider in spiders){
+        [spider stop];
 	}
 	//禁止加速计
 	self.isAccelerometerEnabled = NO;
