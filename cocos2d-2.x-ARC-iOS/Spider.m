@@ -10,46 +10,52 @@
 #import "MultiLayerScene.h"
 
 @implementation Spider
-
 // Static initializer, mimics cocos2d's memory allocation scheme.
-+(id) spiderWithParentNode:(CCNode*)parentNode
++(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos
 {
-	return [[self alloc] initWithParentNode:parentNode];
+	return [[self alloc] initWithParentNode:parentNode position:pos];
 }
 
--(id) initWithParentNode:(CCNode*)parentNode
+-(id) initWithParentNode:(CCNode*)parentNode position:(CGPoint)pos
 {
 	if ((self = [super init]))
 	{
-		// add yourself to the parent
+		// 将自己添加到父节点
 		[parentNode addChild:self];
 		
 		CGSize screenSize = [CCDirector sharedDirector].winSize;
 
 		spiderSprite = [CCSprite spriteWithFile:@"spider.png"];
-		spiderSprite.position = CGPointMake(CCRANDOM_0_1() * screenSize.width, CCRANDOM_0_1() * screenSize.height);
-
-		// add the spiderSprite to yourself
+		spiderSprite.position = pos;
+        //记录原始位置
+        spriteOriginalPos=pos;
+        //添加一个精灵对象
 		[self addChild:spiderSprite];
-		
 		[self scheduleUpdate];
-		
-		// Manually add this class as receiver of targeted touch events.
-		[[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
+		//可以接收触摸事件
+        [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
 	}
 	
 	return self;
 }
-
+-(void)reset
+{
+    [spiderSprite stopAllActions];
+    spiderSprite.position=spriteOriginalPos;
+}
 -(void) cleanup
 {
-	// Must manually remove this class as touch input receiver!
+    //手动注销触摸事件接收器
 	[[CCDirector sharedDirector].touchDispatcher removeDelegate:self];
-	
     [super cleanup];
 }
 
-// Extract common logic into a separate method accepting parameters.
+/**
+ *  Extract common logic into a separate method accepting parameters.
+ *
+ *  @param duration <#duration description#>
+ *  @param moveTo   <#moveTo description#>
+ */
 -(void) moveAway:(float)duration position:(CGPoint)moveTo
 {
 	[spiderSprite stopAllActions];
@@ -59,17 +65,48 @@
 
 -(void) update:(ccTime)delta
 {
+    /*
 	numUpdates++;
 	if (numUpdates > 60)
 	{
 		numUpdates = 0;
-		
 		// Move at regular speed.
 		CGPoint moveTo = CGPointMake(CCRANDOM_0_1() * 200 - 100, CCRANDOM_0_1() * 100 - 50);
 		[self moveAway:2 position:moveTo];
 	}
+     */
 }
-
+-(void)startDrop:(float)duration
+{
+    //计算蜘蛛掉到屏幕下面的位置
+    CGPoint belowScreenPosition=CGPointMake(spiderSprite.position.x, -spiderSprite.texture.contentSize.height);
+    //创建一个运动：从屏幕顶部掉下来
+    CCMoveTo* move=[CCMoveTo actionWithDuration:duration position:belowScreenPosition];
+    //创建一个回调块：掉到屏幕底部后，重新将蜘蛛放在屏幕的顶端
+    CCCallBlock* callDidDrop=[CCCallBlock actionWithBlock:^void() {
+        spiderSprite.position=spriteOriginalPos;
+        isMoving=NO;
+    }];
+    //创建一个动作序列：掉下来，然后重置位置
+    CCSequence* sequence=[CCSequence actions:move,callDidDrop,nil];
+    //蜘蛛执行动作
+    [spiderSprite runAction:sequence];
+    isMoving=YES;
+}
+-(CGPoint)getPosition
+{
+    return spiderSprite.position;
+}
+-(float)getCollisionRadius
+{
+    //获得蜘蛛精灵图像的宽度
+    float spiderImageSize=spiderSprite.texture.contentSize.width;
+    //设定碰撞半径
+    return spiderImageSize*0.4f;
+}
+-(BOOL)getIsMoving{
+    return isMoving;
+}
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
 	CGPoint touchLocation = [MultiLayerScene locationFromTouch:touch];

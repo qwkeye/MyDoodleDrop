@@ -67,11 +67,9 @@
     spiders=[NSMutableArray arrayWithCapacity:numSpiders];
     //初始化每个蜘蛛
     for (int i=0; i<numSpiders; i++) {
-        //创建蜘蛛精灵
-        CCSprite *spider=[CCSprite spriteWithFile:@"spider.png"];
-        //蜘蛛加入到场景中
-        [self addChild:spider z:0 tag:2];
-        //蜘蛛精灵放到数组中
+        CGPoint pos=CGPointMake(imageWidth*i + imageWidth*0.5f, screenSize.height+imageWidth);
+        //创建蜘蛛对象
+        Spider *spider=[Spider spiderWithParentNode:self position:pos];
         [spiders addObject:spider];
     }
     //重新摆放蜘蛛位置
@@ -82,21 +80,12 @@
  */
 -(void)resetSpiders
 {
-    //获得屏幕尺寸
-    CGSize screenSize=[CCDirector sharedDirector].winSize;
-    //获得一个蜘蛛
-    CCSprite *tempSpider=[spiders lastObject];
-    //获得蜘蛛的尺寸
-    CGSize size=tempSpider.texture.contentSize;
     //获得蜘蛛的数量
     int numSpiders=[spiders count];
     //重设每个蜘蛛的位置
     for (int i=0; i<numSpiders; i++) {
-        CCSprite *spider=[spiders objectAtIndex:i];
-        //蜘蛛的高度在屏幕外面，这样蜘蛛就不可见了
-        spider.position=CGPointMake(size.width*i+size.width*0.5f, screenSize.height+size.height);
-        //停止蜘蛛的所有动作
-        [spider stopAllActions];
+        Spider *spider=[spiders objectAtIndex:i];
+        [spider reset];
     }
     //定时更新蜘蛛
     [self schedule:@selector(spidersUpdate:) interval:0.7f];
@@ -113,44 +102,16 @@
     for (int i=0; i<10; i++) {
         //随机挑选一个蜘蛛
         int randomSpiderIndex=CCRANDOM_0_1()*spiders.count;
-        CCSprite *spider=[spiders objectAtIndex:randomSpiderIndex];
-        if(spider.numberOfRunningActions==0){
+        Spider *spider=[spiders objectAtIndex:randomSpiderIndex];
+        if(spider.getIsMoving==NO){
             //如果这只蜘蛛还没有动过，则让它动起来
-            [self runSpiderMoveSequence:spider];
+            [spider startDrop:spiderMoveDuration];
             //一次只触动一只蜘蛛
             break;
         }
     }
 }
-/**
- *  控制蜘蛛运动的动作序列
- *
- *  @param spider 蜘蛛对象
- */
--(void)runSpiderMoveSequence:(CCSprite*)spider
-{
-    //记录已经在运送的蜘蛛的数量
-    numSpidersMoved++;
-    //让蜘蛛加速落下
-    if(numSpidersMoved % 8 == 0 && spiderMoveDuration > 2.0f){
-        spiderMoveDuration-=0.1f;
-    }
-    //计算蜘蛛掉到屏幕下面的位置
-    CGPoint belowScreenPosition=CGPointMake(spider.position.x, -spider.texture.contentSize.height);
-    //创建一个运动：从屏幕顶部掉下来
-    CCMoveTo* move=[CCMoveTo actionWithDuration:spiderMoveDuration position:belowScreenPosition];
-    //创建一个回调块：掉到屏幕底部后，重新将蜘蛛放在屏幕的顶端
-    CCCallBlock* callDidDrop=[CCCallBlock actionWithBlock:^void() {
-        CGPoint pos=spider.position;
-        CGSize screenSize=[CCDirector sharedDirector].winSize;
-        pos.y=screenSize.height+spider.texture.contentSize.height;
-        spider.position=pos;
-    }];
-    //创建一个动作序列：掉下来，然后重置位置
-    CCSequence* sequence=[CCSequence actions:move,callDidDrop,nil];
-    //蜘蛛执行动作
-    [spider runAction:sequence];
-}
+
 /**
  *  Do something icky with the spiders ...
  *
@@ -195,25 +156,22 @@
 {
     //获得玩家和蜘蛛的图像尺寸
     float playerImageSize=player.texture.contentSize.width;
-    CCSprite* spider=[spiders lastObject];
-    float spiderImageSize=spider.texture.contentSize.width;
     //设定玩家的碰撞半径
     float playerCollisionRadius=playerImageSize*0.4f;
-    //设定蜘蛛的碰撞半径
-    float spiderCollisionRadius=spiderImageSize*0.4f;
+    Spider* spider=[spiders lastObject];
     //计算碰撞距离
-    float maxCollisionDistance=playerCollisionRadius+spiderCollisionRadius;
+    float maxCollisionDistance=playerCollisionRadius+spider.getCollisionRadius;
     //循环检测蜘蛛
     int numSpiders=spiders.count;
     for (int i=0; i<numSpiders; i++) {
         //获得蜘蛛对象
         spider=[spiders objectAtIndex:i];
         //如果蜘蛛没有动，则忽略
-        if(spider.numberOfRunningActions==0){
+        if(spider.getIsMoving==NO){
             continue;
         }
         //计算玩家和蜘蛛的距离
-        float actualDistance=ccpDistance(player.position, spider.position);
+        float actualDistance=ccpDistance(player.position, spider.getPosition);
         if(actualDistance<maxCollisionDistance){
             //播放碰撞音效
             [[SimpleAudioEngine sharedEngine] playEffect:@"alien-sfx.caf"];
@@ -311,32 +269,26 @@
  */
 -(void) showGameOver
 {
-	// Re-enable screensaver, to prevent battery drain in case the user puts the device aside without turning it off.
+    //重新允许屏保，以免电池耗尽
 	[self setScreenSaverEnabled:YES];
-	
-	// have everything stop
-	for (CCNode* node in self.children)
+	//停止所有的运动
+    for (CCNode* node in self.children)
 	{
 		[node stopAllActions];
 	}
-	
-	// I do want the spiders to keep wiggling so I simply restart this here
-	for (CCSprite* spider in spiders)
+    //所有蜘蛛复位
+	for (Spider* spider in spiders)
 	{
-		[self runSpiderWiggleSequence:spider];
+        [spider reset];
 	}
-	
-	// disable accelerometer input for the time being
+	//禁止加速计
 	self.isAccelerometerEnabled = NO;
-	// but allow touch input now
+    //允许触摸屏幕
 	self.isTouchEnabled = YES;
-	
-	// stop the scheduled selectors
+    //停止所有更新
 	[self unscheduleAllSelectors];
-	
-	// add the labels shown during game over
+    //显示标签：游戏结束
 	CGSize screenSize = [[CCDirector sharedDirector] winSize];
-	
 	CCLabelTTF* gameOver = [CCLabelTTF labelWithString:@"GAME OVER!" fontName:@"Marker Felt" fontSize:60];
 	gameOver.position = CGPointMake(screenSize.width / 2, screenSize.height / 3);
 	[self addChild:gameOver z:100 tag:100];
@@ -366,7 +318,7 @@
 	CCJumpBy* jump = [CCJumpBy actionWithDuration:3 position:CGPointZero height:screenSize.height / 3 jumps:1];
 	CCRepeatForever* repeatJump = [CCRepeatForever actionWithAction:jump];
 	[gameOver runAction:repeatJump];
-	
+	//显示标签：点击继续
 	// touch to continue label
 	CCLabelTTF* touch = [CCLabelTTF labelWithString:@"tap screen to play again" fontName:@"Arial" fontSize:20];
 	touch.position = CGPointMake(screenSize.width / 2, screenSize.height / 4);
