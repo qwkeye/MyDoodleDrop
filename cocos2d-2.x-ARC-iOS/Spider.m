@@ -38,6 +38,7 @@
 -(void)stop
 {
     [spiderSprite stopAllActions];
+    isMoving=NO;
 }
 -(void)reset
 {
@@ -110,6 +111,10 @@
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    //蜘蛛在静止时不接收触摸事件
+    if (isMoving==NO) {
+        return NO;
+    }
 	CGPoint touchLocation = [MultiLayerScene locationFromTouch:touch];
 	
 	// Check if this touch is on the Spider's sprite.
