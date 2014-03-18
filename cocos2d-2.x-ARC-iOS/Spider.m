@@ -58,33 +58,42 @@
 }
 
 /**
- *  Extract common logic into a separate method accepting parameters.
+ *  让蜘蛛偏离到某一点，然后继续下坠
  *
- *  @param duration <#duration description#>
- *  @param moveTo   <#moveTo description#>
+ *  @param duration 偏离运动的时间
+ *  @param moveTo   偏离目的地坐标
  */
 -(void) moveAway:(float)duration position:(CGPoint)moveTo
 {
+    //停止当前运动
 	[spiderSprite stopAllActions];
+    //蜘蛛飘到一个位置，注意这个是偏移到一个相对位置
 	CCMoveBy* move = [CCMoveBy actionWithDuration:duration position:moveTo];
-	[spiderSprite runAction:move];
+    //计算蜘蛛掉到屏幕下面的位置（绝对位置）
+    CGPoint belowScreenPosition=CGPointMake(spiderSprite.position.x+moveTo.x, -spiderSprite.texture.contentSize.height);
+    //创建一个运动：从偏移的位置继续掉下来，注意时间是选取全局变量dropToBottom
+    CCMoveTo* drop=[CCMoveTo actionWithDuration:dropToBottom position:belowScreenPosition];
+    //创建一个回调块：掉到屏幕底部后，重新将蜘蛛放在屏幕的顶端
+    CCCallBlock* callDidDrop=[CCCallBlock actionWithBlock:^void() {
+        spiderSprite.position=spriteOriginalPos;
+        isMoving=NO;
+    }];
+    //创建一个动作序列：掉下来，然后重置位置
+    CCSequence* sequence=[CCSequence actions:move,drop,callDidDrop,nil];
+    //蜘蛛执行动作
+    [spiderSprite runAction:sequence];
 }
 
 -(void) update:(ccTime)delta
 {
-    /*
-	numUpdates++;
-	if (numUpdates > 60)
-	{
-		numUpdates = 0;
-		// Move at regular speed.
-		CGPoint moveTo = CGPointMake(CCRANDOM_0_1() * 200 - 100, CCRANDOM_0_1() * 100 - 50);
-		[self moveAway:2 position:moveTo];
-	}
-     */
+    if(isMoving && dropToBottom>0){
+        //记录还有多少时间掉到底下
+        dropToBottom-=delta;
+    }
 }
 -(void)startDrop:(float)duration
 {
+    dropToBottom=duration;
     //计算蜘蛛掉到屏幕下面的位置
     CGPoint belowScreenPosition=CGPointMake(spiderSprite.position.x, -spiderSprite.texture.contentSize.height);
     //创建一个运动：从屏幕顶部掉下来

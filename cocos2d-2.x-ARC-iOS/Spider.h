@@ -15,6 +15,7 @@
 	// This is called composition or aggregation of objects, in contrast to subclassing or inheritance.
 	CCSprite* spiderSprite;
 	int numUpdates;
+    float dropToBottom;//蜘蛛掉到屏幕底部剩余的时间
     CGPoint spriteOriginalPos;   //记录蜘蛛精灵初始的位置
     BOOL isMoving;
 }
