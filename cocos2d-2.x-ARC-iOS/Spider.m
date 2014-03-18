@@ -20,6 +20,7 @@
 {
 	if ((self = [super init]))
 	{
+        CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
 		// 将自己添加到父节点
 		[parentNode addChild:self];
 		spiderSprite = [CCSprite spriteWithFile:@"spider.png"];
@@ -34,6 +35,10 @@
 	}
 	
 	return self;
+}
+- (void)dealloc
+{
+    CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
 }
 -(void)stop
 {
@@ -95,7 +100,7 @@
     [spiderSprite runAction:sequence];
     isMoving=YES;
 }
--(CGPoint)getPosition
+-(CGPoint)getSpritePosition
 {
     return spiderSprite.position;
 }
@@ -144,7 +149,10 @@
 	
 	return isTouchHandled;
 }
-
+-(CGSize)getSize
+{
+    return spiderSprite.texture.contentSize;
+}
 
 @end
 

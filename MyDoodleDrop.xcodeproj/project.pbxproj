@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4AB5090818D7D86D00722556 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5090718D7D86D00722556 /* Player.m */; };
 		4ACD52FA18CDF41B00C8A352 /* LevelA01.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACD52F918CDF41B00C8A352 /* LevelA01.m */; };
 		4ACE36AF18CDFA0700E6124F /* MultiLayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE36AE18CDFA0700E6124F /* MultiLayerScene.m */; };
 		4ACE36B318CDFD8E00E6124F /* UserInterfaceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE36B218CDFD8E00E6124F /* UserInterfaceLayer.m */; };
@@ -279,6 +280,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4AB5090618D7D86D00722556 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		4AB5090718D7D86D00722556 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		4ACD52F818CDF41B00C8A352 /* LevelA01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelA01.h; sourceTree = "<group>"; };
 		4ACD52F918CDF41B00C8A352 /* LevelA01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelA01.m; sourceTree = "<group>"; };
 		4ACE36AD18CDFA0700E6124F /* MultiLayerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiLayerScene.h; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 				6351136B18CE341600A8AFB7 /* MainScreen.m */,
 				4ACE36AD18CDFA0700E6124F /* MultiLayerScene.h */,
 				4ACE36AE18CDFA0700E6124F /* MultiLayerScene.m */,
+				4AB5090618D7D86D00722556 /* Player.h */,
+				4AB5090718D7D86D00722556 /* Player.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
 				4AFB3B4618D2959C00DC269E /* Spider.h */,
 				4AFB3B4718D2959C00DC269E /* Spider.m */,
@@ -1284,6 +1289,7 @@
 				4ACE36B318CDFD8E00E6124F /* UserInterfaceLayer.m in Sources */,
 				4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */,
 				4AFB3B4818D2959C00DC269E /* Spider.m in Sources */,
+				4AB5090818D7D86D00722556 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

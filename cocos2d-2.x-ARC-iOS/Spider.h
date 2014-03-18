@@ -57,13 +57,19 @@
  *
  *  @return 位置
  */
--(CGPoint)getPosition;
+-(CGPoint)getSpritePosition;
 /**
  *  获得碰撞的半径
  *
  *  @return 碰撞半径
  */
 -(float)getCollisionRadius;
+/**
+ *  获得一个大致的尺寸，通常是精灵图像的尺寸
+ *
+ *  @return 对象的尺寸
+ */
+-(CGSize)getSize;
 /**
  *  停止运动
  */

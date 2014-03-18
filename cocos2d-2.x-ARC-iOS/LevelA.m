@@ -24,24 +24,21 @@
     self = [super init];
     if (self) {
         CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
-        //允许加速器
-        self.isAccelerometerEnabled=YES;
-        //创建玩家对象
-        player=[CCSprite spriteWithFile:@"alien.png"];
-        //添加玩家对象
-        [self addChild:player z:0 tag:1];
-        //将玩家对象摆放在屏幕底部中间位置
+        //计算玩家对象的位置：将玩家对象摆放在屏幕底部中间位置
         CGSize screenSize=[CCDirector sharedDirector].winSize;
-        float imageHeight=player.texture.contentSize.height;
-        player.position=CGPointMake(screenSize.width/2, imageHeight/2);
-        //开始自动更新
-        [self scheduleUpdate];
-        //重置所有的蜘蛛
-        [self initSpiders];
+        float imageHeight=[Player getSize].height;
+        CGPoint playerPos=CGPointMake(screenSize.width/2, imageHeight/2);
+        //创建玩家对象
+        player=[Player playerWithParentNode:self position:playerPos];
+        //计算玩家能够活动的范围
+        float imageWidthHalved=[Player getSize].width *0.5f;
+        playerMoveLeftBorderLimit=imageWidthHalved;
+        playerMoveRightBorderLimit=screenSize.width-imageWidthHalved;
         //播放背景音乐
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"blues.mp3" loop:YES];
         //预加载声音，以避免初始使用声音时出现一点延迟
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"alien-sfx.caf"];
+        [self resetGame];
     }
     return self;
 }
@@ -154,13 +151,9 @@
  */
 -(void)checkForCollision
 {
-    //获得玩家和蜘蛛的图像尺寸
-    float playerImageSize=player.texture.contentSize.width;
-    //设定玩家的碰撞半径
-    float playerCollisionRadius=playerImageSize*0.4f;
     Spider* spider=[spiders lastObject];
     //计算碰撞距离
-    float maxCollisionDistance=playerCollisionRadius+spider.getCollisionRadius;
+    float maxCollisionDistance=player.getCollisionRadius+spider.getCollisionRadius;
     //循环检测蜘蛛
     int numSpiders=spiders.count;
     for (int i=0; i<numSpiders; i++) {
@@ -171,7 +164,7 @@
             continue;
         }
         //计算玩家和蜘蛛的距离
-        float actualDistance=ccpDistance(player.position, spider.getPosition);
+        float actualDistance=ccpDistance(player.getSpritePosition, spider.getSpritePosition);
         if(actualDistance<maxCollisionDistance){
             //播放碰撞音效
             [[SimpleAudioEngine sharedEngine] playEffect:@"alien-sfx.caf"];
@@ -186,23 +179,27 @@
  */
 -(void)resetGame
 {
-    // prevent screensaver from darkening the screen while the game is played
-	[self setScreenSaverEnabled:NO];
-	// remove game over label & touch to continue label
+	//禁止屏保
+    [self setScreenSaverEnabled:NO];
+    //删除标签：GameOver和touch to continue
 	[self removeChildByTag:100 cleanup:YES];
 	[self removeChildByTag:101 cleanup:YES];
     //删除所有的蜘蛛
-    for (Spider* s in spiders) {
-        [self removeChild:s cleanup:YES];
+    if(spiders!=nil){
+        for (Spider* s in spiders) {
+            [self removeChild:s cleanup:YES];
+        }
     }
     spiders=nil;
+    //初始化蜘蛛
     [self initSpiders];
-	// re-enable accelerometer
+	//重新打开加速器
 	self.isAccelerometerEnabled = YES;
-	self.isTouchEnabled = NO;
-	// re-schedule update
+	//允许触摸
+    self.isTouchEnabled = NO;
+	//开始每帧更新
 	[self scheduleUpdate];
-	// reset score
+	//重置分数
 	score = 0;
 }
 
@@ -210,25 +207,20 @@
 {
     //每帧都调用此方法
     //获得玩家的位置
-    CGPoint pos=player.position;
+    CGPoint pos=player.getSpritePosition;
     //根据计算的速度更新玩家位置
     pos.x += playerVelocity.x;
-    //计算屏幕的左边和右边的极限位置
-    CGSize screenSize=[CCDirector sharedDirector].winSize;
-    float imageWidthHalved=player.texture.contentSize.width *0.5f;
-    float leftBorderLimit=imageWidthHalved;
-    float rightBorderLimit=screenSize.width-imageWidthHalved;
     //防止玩家跑到屏幕外面
-    if(pos.x<leftBorderLimit){
-        pos.x=leftBorderLimit;
+    if(pos.x<playerMoveLeftBorderLimit){
+        pos.x=playerMoveLeftBorderLimit;
         //已经贴近屏幕边缘，则不再加速了
         playerVelocity=CGPointZero;
-    }else if(pos.x>rightBorderLimit){
-        pos.x=rightBorderLimit;
+    }else if(pos.x>playerMoveRightBorderLimit){
+        pos.x=playerMoveRightBorderLimit;
         //已经贴近屏幕边缘，则不再加速了
         playerVelocity=CGPointZero;
     }
-    player.position=pos;
+    [player setPosition:pos];
     //碰撞检测
     [self checkForCollision];
     //调试：用总帧数来模拟分数
@@ -276,7 +268,7 @@
     //重新允许屏保，以免电池耗尽
 	[self setScreenSaverEnabled:YES];
 	//玩家停止运动
-    [player stopAllActions];
+    [player stop];
     //蜘蛛停止运动
 	for (Spider* spider in spiders){
         [spider stop];
