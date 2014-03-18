@@ -31,7 +31,9 @@
 		[self addChild:spiderSprite];
 		[self scheduleUpdate];
         //可以接收触摸事件
-        [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
+        [[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self
+                                                                priority:-1
+                                                         swallowsTouches:YES];
 	}
 	
 	return self;
