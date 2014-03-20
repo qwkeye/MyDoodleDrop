@@ -164,6 +164,29 @@
 {
     return spiderSprite.texture.contentSize;
 }
-
+-(void) draw
+{
+	[super draw];
+#if DEBUG
+    //调试模式下，给蜘蛛描绘一个展示碰撞范围的圈
+    float radius = spiderSprite.texture.contentSize.width * 0.4f;
+    float angle = 0;
+    int numSegments = 10;
+    bool drawLineToCenter = NO;
+    ccDrawCircle(spiderSprite.position, radius, angle, numSegments, drawLineToCenter);
+#endif
+	
+	CGSize screenSize = [CCDirector sharedDirector].winSize;
+    //计算需要砍断蜘蛛丝的位置
+	float threadCutPosition = screenSize.height * 0.75f;
+	//仅当蜘蛛在某个位置之上才画线
+    if (spiderSprite.position.y > threadCutPosition)
+    {
+        // vary thread position a little so it looks a bit more dynamic
+        float threadX = spiderSprite.position.x + (CCRANDOM_0_1() * 2.0f - 1.0f);
+        ccDrawColor4F(0.5f, 0.5f, 0.5f, 1.0f);
+        ccDrawLine(spiderSprite.position, CGPointMake(threadX, screenSize.height));
+    }
+}
 @end
 

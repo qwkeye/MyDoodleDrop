@@ -223,8 +223,8 @@
     [player setPosition:pos];
     //碰撞检测
     [self checkForCollision];
-    //调试：用总帧数来模拟分数
-    score=[CCDirector sharedDirector].totalFrames;
+    //增加分数
+    score++;
 }
 #if DEBUG
 -(void)draw
