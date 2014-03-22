@@ -220,7 +220,7 @@
         //已经贴近屏幕边缘，则不再加速了
         playerVelocity=CGPointZero;
     }
-    [player setPosition:pos];
+    [player setSpritePosition:pos];
     //碰撞检测
     [self checkForCollision];
     //增加分数

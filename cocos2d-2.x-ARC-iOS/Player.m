@@ -57,6 +57,10 @@
 {
     return playerSprite.position;
 }
+-(void)setSpritePosition:(CGPoint)position
+{
+    playerSprite.position=position;
+}
 -(float)getCollisionRadius
 {
     //获得精灵图像的宽度
