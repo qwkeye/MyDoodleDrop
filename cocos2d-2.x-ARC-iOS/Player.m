@@ -9,10 +9,7 @@
 #import "Player.h"
 
 @implementation Player
--(void)setPosition:(CGPoint)position
-{
-    playerSprite.position=position;
-}
+
 +(CGSize)getSize
 {
     //创建一个临时精灵

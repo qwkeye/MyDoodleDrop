@@ -109,23 +109,6 @@
     }
 }
 
-/**
- *  Do something icky with the spiders ...
- *
- *  @param spider 蜘蛛对象
- */
--(void) runSpiderWiggleSequence:(CCSprite*)spider
-{
-	//
-	CCScaleTo* scaleUp = [CCScaleTo actionWithDuration:CCRANDOM_0_1() * 2 + 1 scale:1.05f];
-	CCEaseBackInOut* easeUp = [CCEaseBackInOut actionWithAction:scaleUp];
-	CCScaleTo* scaleDown = [CCScaleTo actionWithDuration:CCRANDOM_0_1() * 2 + 1 scale:0.95f];
-	CCEaseBackInOut* easeDown = [CCEaseBackInOut actionWithAction:scaleDown];
-	CCSequence* scaleSequence = [CCSequence actions:easeUp, easeDown, nil];
-	CCRepeatForever* repeatScale = [CCRepeatForever actionWithAction:scaleSequence];
-	[spider runAction:repeatScale];
-}
-
 -(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration
 {
     //==============================

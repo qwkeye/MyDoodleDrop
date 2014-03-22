@@ -18,7 +18,6 @@
 		4AFB3B4818D2959C00DC269E /* Spider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFB3B4718D2959C00DC269E /* Spider.m */; };
 		6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A218CA6BBD002638F3 /* alien-hd.png */; };
 		6339E2A518CA6BBD002638F3 /* alien.png in Resources */ = {isa = PBXBuildFile; fileRef = 6339E2A318CA6BBD002638F3 /* alien.png */; };
-		633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 633D8CBA18C9DF2B00838713 /* GameLayer.m */; };
 		6351136C18CE341600A8AFB7 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351136B18CE341600A8AFB7 /* MainScreen.m */; };
 		6351136F18CE3DA100A8AFB7 /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 6351136E18CE3DA100A8AFB7 /* LoadingScene.m */; };
 		63B947DD18CCAD2B00779082 /* bitmapfont-hd.fnt in Resources */ = {isa = PBXBuildFile; fileRef = 63B947D918CCAD2B00779082 /* bitmapfont-hd.fnt */; };
@@ -297,8 +296,6 @@
 		4AFB3B4718D2959C00DC269E /* Spider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Spider.m; sourceTree = "<group>"; };
 		6339E2A218CA6BBD002638F3 /* alien-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alien-hd.png"; sourceTree = "<group>"; };
 		6339E2A318CA6BBD002638F3 /* alien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alien.png; sourceTree = "<group>"; };
-		633D8CB918C9DF2B00838713 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
-		633D8CBA18C9DF2B00838713 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		6351136A18CE341600A8AFB7 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
 		6351136B18CE341600A8AFB7 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 		6351136D18CE3DA100A8AFB7 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
@@ -648,8 +645,6 @@
 			children = (
 				DC0C4B78154AB4DF00B4B727 /* AppDelegate.h */,
 				DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */,
-				633D8CB918C9DF2B00838713 /* GameLayer.h */,
-				633D8CBA18C9DF2B00838713 /* GameLayer.m */,
 				4ACD52F618CDF33D00C8A352 /* Levels */,
 				DC0C4B93154AB59800B4B727 /* libs */,
 				6351136D18CE3DA100A8AFB7 /* LoadingScene.h */,
@@ -1286,7 +1281,6 @@
 			files = (
 				DC0C4B77154AB4DF00B4B727 /* main.m in Sources */,
 				DC0C4B7A154AB4DF00B4B727 /* AppDelegate.m in Sources */,
-				633D8CBB18C9DF2B00838713 /* GameLayer.m in Sources */,
 				6351136C18CE341600A8AFB7 /* MainScreen.m in Sources */,
 				6351136F18CE3DA100A8AFB7 /* LoadingScene.m in Sources */,
 				4ACD52FA18CDF41B00C8A352 /* LevelA01.m in Sources */,
