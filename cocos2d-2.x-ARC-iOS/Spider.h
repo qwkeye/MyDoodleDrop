@@ -18,6 +18,8 @@
     float dropToBottom;//蜘蛛掉到屏幕底部剩余的时间
     CGPoint spriteOriginalPos;   //记录蜘蛛精灵初始的位置
     BOOL isMoving;
+    BOOL isHanging;
+    BOOL isDroping;
 }
 /**
  *  通过父节点来创建新对象

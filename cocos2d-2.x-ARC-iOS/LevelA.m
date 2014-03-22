@@ -89,7 +89,7 @@
     //初始化：移动的蜘蛛数量
     numSpidersMoved=0;
     //初始化：蜘蛛从顶端掉到底端的时间
-    spiderMoveDuration=4.0f;
+    spiderMoveDuration=5.0f;
 }
 -(void)spidersUpdate:(ccTime)delta
 {

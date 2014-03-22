@@ -88,7 +88,7 @@
 
 -(void) update:(ccTime)delta
 {
-    if(isMoving && dropToBottom>0){
+    if(isDroping && dropToBottom>0){
         //记录还有多少时间掉到底下
         dropToBottom-=delta;
     }
@@ -98,18 +98,35 @@
     dropToBottom=duration;
     //计算蜘蛛掉到屏幕下面的位置
     CGPoint belowScreenPosition=CGPointMake(spiderSprite.position.x, -spiderSprite.texture.contentSize.height);
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    //创建一个运动：从屏幕顶部悬停到一个随机的位置
+    CGPoint hangInTherePosition = CGPointMake(spiderSprite.position.x, screenSize.height
+                                              - (3 * CCRANDOM_0_1() +1) * spiderSprite.texture.contentSize.height);
+    CCMoveTo* moveHang = [CCMoveTo actionWithDuration:2 position:hangInTherePosition];
+	CCEaseElasticOut* easeHang = [CCEaseElasticOut actionWithAction:moveHang period:0.8f];
     //创建一个运动：从屏幕顶部掉下来
-    CCMoveTo* move=[CCMoveTo actionWithDuration:duration position:belowScreenPosition];
+	CCMoveTo* moveEnd = [CCMoveTo actionWithDuration:duration position:belowScreenPosition];
+	CCEaseBackInOut* easeEnd = [CCEaseBackInOut actionWithAction:moveEnd];
     //创建一个回调块：掉到屏幕底部后，重新将蜘蛛放在屏幕的顶端
     CCCallBlock* callDidDrop=[CCCallBlock actionWithBlock:^void() {
         spiderSprite.position=spriteOriginalPos;
         isMoving=NO;
+        isDroping=NO;
     }];
-    //创建一个动作序列：掉下来，然后重置位置
-    CCSequence* sequence=[CCSequence actions:move,callDidDrop,nil];
+    //回调快：标记蜘蛛正在下坠
+    CCCallBlock* callStartDrop=[CCCallBlock actionWithBlock:^void() {
+        isHanging= NO;
+        isDroping=YES;
+    }];
+
+    //创建一个动作序列
+    CCSequence* sequence=[CCSequence actions:easeHang,callStartDrop, easeEnd, callDidDrop, nil];
     //蜘蛛执行动作
     [spiderSprite runAction:sequence];
+    //设置全局标志
     isMoving=YES;
+    isHanging=YES;
+    isDroping=NO;
 }
 -(CGPoint)getSpritePosition
 {
@@ -128,7 +145,7 @@
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     //蜘蛛在静止时不接收触摸事件
-    if (isMoving==NO) {
+    if (isDroping==NO) {
         return NO;
     }
 	CGPoint touchLocation = [MultiLayerScene locationFromTouch:touch];
@@ -177,10 +194,8 @@
 #endif
 	
 	CGSize screenSize = [CCDirector sharedDirector].winSize;
-    //计算需要砍断蜘蛛丝的位置
-	float threadCutPosition = screenSize.height * 0.75f;
-	//仅当蜘蛛在某个位置之上才画线
-    if (spiderSprite.position.y > threadCutPosition)
+	//仅当蜘蛛在悬挂才画线
+    if (isHanging)
     {
         // vary thread position a little so it looks a bit more dynamic
         float threadX = spiderSprite.position.x + (CCRANDOM_0_1() * 2.0f - 1.0f);
