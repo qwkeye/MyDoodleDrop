@@ -102,7 +102,7 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     //返回主菜单
     [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneMain]];
 }
--(void)pauseGame
+-(BOOL)pauseGame
 {
     //获得游戏层
     CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
@@ -110,7 +110,12 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
               NSStringFromSelector(_cmd));
     //转换对象
     LevelA01* gameLayer=(LevelA01*)layer1;
-    [gameLayer pauseGame];
+    if(gameLayer.isGameOver)
+        return NO;
+    else{
+        [gameLayer pauseGame];
+        return YES;
+    }
 }
 -(void)resumeGame
 {

@@ -51,11 +51,13 @@
 {
     [self pauseSchedulerAndActions];
     [spiderSprite pauseSchedulerAndActions];
+    isPausing=YES;
 }
 -(void)resumeGame
 {
     [self resumeSchedulerAndActions];
     [spiderSprite resumeSchedulerAndActions];
+    isPausing=NO;
 }
 -(void)reset
 {
@@ -154,6 +156,9 @@
 }
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    //暂停时不接收触摸事件
+    if(isPausing)
+        return NO;
     //蜘蛛在静止时不接收触摸事件
     if (isDroping==NO) {
         return NO;

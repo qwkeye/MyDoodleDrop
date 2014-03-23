@@ -45,7 +45,7 @@
         //加入到场景
         [self addChild:menu];
         //设置菜单项的间隔
-        [menu alignItemsHorizontallyWithPadding:8.0f];
+        [menu alignItemsHorizontallyWithPadding:10.0f];
         
         //创建分数标签
         scoreLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:12];
@@ -77,10 +77,10 @@
         [itemPauseResume setString:@"Pause"];
         
     }else{
-        //暂停
-        [[MultiLayerScene sharedLayer] pauseGame];
-        isPausing=YES;
-        [itemPauseResume setString:@"Resume"];
+        //尝试暂停
+        isPausing= [[MultiLayerScene sharedLayer] pauseGame];
+        if(isPausing)
+            [itemPauseResume setString:@"Resume"];
     }
 }
 -(void) dealloc
@@ -94,44 +94,4 @@
     //显示分数
     [scoreLabel setString:[NSString stringWithFormat:@"%i",score]];
 }
-
--(void) registerWithTouchDispatcher
-{
-	[[CCDirector sharedDirector].touchDispatcher addTargetedDelegate:self priority:-1 swallowsTouches:YES];
-}
-
--(BOOL) isTouchForMe:(CGPoint)touchLocation
-{
-    //==============================
-    //检查用户的触控点是否在本层需要处理的
-    //范围之内
-    //==============================
-	CCNode* node = [self getChildByTag:UILayerTagFrameSprite];
-	return CGRectContainsPoint([node boundingBox], touchLocation);
-}
-
--(BOOL) ccTouchBegan:(UITouch*)touch withEvent:(UIEvent *)event
-{
-	CGPoint location = [MultiLayerScene locationFromTouch:touch];
-	BOOL isTouchHandled = [self isTouchForMe:location];
-	if (isTouchHandled)
-	{
-		// Simply highlight the UI layer's sprite to show that it received the touch.
-        //设置精灵的背景色为红色，以通知用户收到了触摸事件
-		CCNode* node = [self getChildByTag:UILayerTagFrameSprite];
-		NSAssert([node isKindOfClass:[CCSprite class]], @"node is not a CCSprite");
-		((CCSprite*)node).color = ccRED;
-	}
-
-	return isTouchHandled;
-}
-
--(void) ccTouchEnded:(UITouch*)touch withEvent:(UIEvent *)event
-{
-	CCNode* node = [self getChildByTag:UILayerTagFrameSprite];
-	NSAssert([node isKindOfClass:[CCSprite class]], @"node is not a CCSprite");
-    //触摸结束后，还原背景色
-	((CCSprite*)node).color = ccWHITE;
-}
-
 @end

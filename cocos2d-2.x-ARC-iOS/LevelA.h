@@ -17,8 +17,16 @@
     int numSpidersMoved;//移动的蜘蛛数
     float playerMoveLeftBorderLimit;//玩家能够移动到最左边的地方
     float playerMoveRightBorderLimit;//玩家能够移动到最右边的地方
+    /*===========================
+     计分机制的说明
+     躲过一只蜘蛛，则获得相应的分数，不同
+     种类的蜘蛛，权重分不一样，比如简单的
+     蜘蛛，则记1分，比较恐怖的蜘蛛，则记
+     3分，等等
+     ============================*/
 }
 @property (readonly) int score;
+@property (readonly) BOOL isGameOver;
 +(id)scene;
 -(void)pauseGame;
 -(void)resumeGame;

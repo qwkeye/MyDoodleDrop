@@ -11,7 +11,7 @@
 #import "Spider.h"
 
 @implementation LevelA
-@synthesize score;
+@synthesize score,isGameOver;
 +(id)scene
 {
     CCScene *scene=[CCScene node];
@@ -184,6 +184,7 @@
 	[self scheduleUpdate];
 	//重置分数
 	score = 0;
+    isGameOver=NO;
 }
 
 -(void)update:(ccTime)delta
@@ -248,6 +249,8 @@
  */
 -(void) showGameOver
 {
+    //设置标志
+    isGameOver=YES;
     //重新允许屏保，以免电池耗尽
 	[self setScreenSaverEnabled:YES];
 	//玩家停止运动

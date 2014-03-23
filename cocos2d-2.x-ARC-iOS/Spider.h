@@ -20,6 +20,7 @@
     BOOL isMoving;
     BOOL isHanging;
     BOOL isDroping;
+    BOOL isPausing;
 }
 /**
  *  通过父节点来创建新对象
