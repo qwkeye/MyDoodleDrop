@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-
 @interface Player : CCNode {
     CCSprite* playerSprite;
     CGPoint spriteOriginalPos;   //记录精灵初始的位置

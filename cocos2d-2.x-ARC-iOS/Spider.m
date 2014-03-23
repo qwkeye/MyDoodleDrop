@@ -10,6 +10,7 @@
 #import "MultiLayerScene.h"
 
 @implementation Spider
+@synthesize scoreProcessor;
 // Static initializer, mimics cocos2d's memory allocation scheme.
 +(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos
 {
@@ -124,6 +125,9 @@
         spiderSprite.position=spriteOriginalPos;
         isMoving=NO;
         isDroping=NO;
+        //获得一分！
+        [scoreProcessor addScoreInLevel:0 earnedScore:1];
+        //[CCLOG(@"spider at x drop to ")];
     }];
     //回调快：标记蜘蛛正在下坠
     CCCallBlock* callStartDrop=[CCCallBlock actionWithBlock:^void() {

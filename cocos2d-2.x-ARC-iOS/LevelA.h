@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Player.h"
-@interface LevelA : CCLayer {
+#import "ScoreProcessor.h"
+@interface LevelA : CCLayer <ScoreProcessor>   {
     Player *player;       //玩家对象
     CGPoint playerVelocity; //玩家移动的速度
     NSMutableArray *spiders;//蜘蛛数组

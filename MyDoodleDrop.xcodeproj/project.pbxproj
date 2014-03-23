@@ -281,6 +281,7 @@
 /* Begin PBXFileReference section */
 		4AB5090618D7D86D00722556 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		4AB5090718D7D86D00722556 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		4ABD696718DEE66D00706D79 /* ScoreProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScoreProcessor.h; path = ../ScoreProcessor.h; sourceTree = "<group>"; };
 		4ACD52F818CDF41B00C8A352 /* LevelA01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelA01.h; sourceTree = "<group>"; };
 		4ACD52F918CDF41B00C8A352 /* LevelA01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelA01.m; sourceTree = "<group>"; };
 		4ACE36AD18CDFA0700E6124F /* MultiLayerScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiLayerScene.h; sourceTree = "<group>"; };
@@ -656,6 +657,7 @@
 				4AB5090618D7D86D00722556 /* Player.h */,
 				4AB5090718D7D86D00722556 /* Player.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
+				4ABD696718DEE66D00706D79 /* ScoreProcessor.h */,
 				4AFB3B4618D2959C00DC269E /* Spider.h */,
 				4AFB3B4718D2959C00DC269E /* Spider.m */,
 				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,

@@ -7,7 +7,7 @@
 //
 
 #import "cocos2d.h"
-
+#import "ScoreProcessor.h"
 
 @interface Spider : CCNode <CCTargetedTouchDelegate>
 {
@@ -86,4 +86,5 @@
  *  恢复游戏
  */
 -(void)resumeGame;
+@property id<ScoreProcessor> scoreProcessor;
 @end
