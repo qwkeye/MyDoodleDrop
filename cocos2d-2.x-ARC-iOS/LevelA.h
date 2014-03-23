@@ -20,4 +20,6 @@
 }
 @property (readonly) int score;
 +(id)scene;
+-(void)pauseGame;
+-(void)resumeGame;
 @end

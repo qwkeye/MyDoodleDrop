@@ -30,4 +30,6 @@ typedef enum
 +(MultiLayerScene*) sharedLayer;
 +(id) scene;
 -(void)abortGame;
+-(void)pauseGame;
+-(void)resumeGame;
 @end

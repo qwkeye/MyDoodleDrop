@@ -102,6 +102,26 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     //返回主菜单
     [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneMain]];
 }
+-(void)pauseGame
+{
+    //获得游戏层
+    CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
+    NSAssert1([layer1 isKindOfClass:[LevelA01 class]], @"not a LevelA01",
+              NSStringFromSelector(_cmd));
+    //转换对象
+    LevelA01* gameLayer=(LevelA01*)layer1;
+    [gameLayer pauseGame];
+}
+-(void)resumeGame
+{
+    //获得游戏层
+    CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
+    NSAssert1([layer1 isKindOfClass:[LevelA01 class]], @"not a LevelA01",
+              NSStringFromSelector(_cmd));
+    //转换对象
+    LevelA01* gameLayer=(LevelA01*)layer1;
+    [gameLayer resumeGame];
+}
 -(void) dealloc
 {
 	CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);

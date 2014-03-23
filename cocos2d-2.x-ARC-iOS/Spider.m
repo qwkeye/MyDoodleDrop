@@ -47,6 +47,16 @@
     [spiderSprite stopAllActions];
     isMoving=NO;
 }
+-(void)pauseGame
+{
+    [self pauseSchedulerAndActions];
+    [spiderSprite pauseSchedulerAndActions];
+}
+-(void)resumeGame
+{
+    [self resumeSchedulerAndActions];
+    [spiderSprite resumeSchedulerAndActions];
+}
 -(void)reset
 {
     [spiderSprite stopAllActions];

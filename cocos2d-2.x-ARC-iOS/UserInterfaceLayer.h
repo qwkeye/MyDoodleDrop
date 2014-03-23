@@ -18,6 +18,8 @@ typedef enum
 @interface UserInterfaceLayer : CCLayer 
 {
     CCLabelTTF* scoreLabel;//用于显示分数的标签
+    CCMenuItemFont* itemPauseResume;//显示暂停、恢复的菜单
+    BOOL isPausing;//是否暂停中
 }
 //判断是否处理触控输入
 -(BOOL) isTouchForMe:(CGPoint)touchLocation;

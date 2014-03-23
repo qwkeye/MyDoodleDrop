@@ -30,7 +30,7 @@
         //设置菜单项的字体大小
         [CCMenuItemFont setFontSize:24];
         //创建菜单项，并指定处理的方法
-        CCMenuItemFont* itemPauseResume=[CCMenuItemFont itemWithString:@"Pause"
+        itemPauseResume=[CCMenuItemFont itemWithString:@"Pause"
                                                             target:self
                                                           selector:@selector(menuItemPauseResumeTouched)];
         CCMenuItemFont* itemAbort=[CCMenuItemFont itemWithString:@"Abort"
@@ -45,7 +45,7 @@
         //加入到场景
         [self addChild:menu];
         //设置菜单项的间隔
-        [menu alignItemsHorizontallyWithPadding:4.0f];
+        [menu alignItemsHorizontallyWithPadding:8.0f];
         
         //创建分数标签
         scoreLabel=[CCLabelTTF labelWithString:@"0" fontName:@"Arial" fontSize:12];
@@ -70,7 +70,18 @@
 }
 -(void)menuItemPauseResumeTouched
 {
-    //暂停
+    if(isPausing){
+        //恢复
+        [[MultiLayerScene sharedLayer] resumeGame];
+        isPausing=NO;
+        [itemPauseResume setString:@"Pause"];
+        
+    }else{
+        //暂停
+        [[MultiLayerScene sharedLayer] pauseGame];
+        isPausing=YES;
+        [itemPauseResume setString:@"Resume"];
+    }
 }
 -(void) dealloc
 {

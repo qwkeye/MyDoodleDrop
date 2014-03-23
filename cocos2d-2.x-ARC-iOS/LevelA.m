@@ -309,5 +309,20 @@
 {
 	[self resetGame];
 }
-
+-(void)pauseGame
+{
+    [self pauseSchedulerAndActions];
+    for (Spider* spider in spiders) {
+        [spider pauseGame];
+    }
+    [player pauseGame];
+}
+-(void)resumeGame
+{
+    for (Spider* spider in spiders) {
+        [spider resumeGame];
+    }
+    [player resumeGame];
+    [self resumeSchedulerAndActions];
+}
 @end

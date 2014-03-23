@@ -77,4 +77,12 @@
  *  停止运动
  */
 -(void)stop;
+/**
+ *  暂停游戏
+ */
+-(void)pauseGame;
+/**
+ *  恢复游戏
+ */
+-(void)resumeGame;
 @end

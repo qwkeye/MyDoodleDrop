@@ -45,6 +45,14 @@
     [playerSprite stopAllActions];
     isMoving=NO;
 }
+-(void)pauseGame
+{
+    [playerSprite pauseSchedulerAndActions];
+}
+-(void)resumeGame
+{
+    [playerSprite resumeSchedulerAndActions];
+}
 -(void)reset
 {
     [playerSprite stopAllActions];
