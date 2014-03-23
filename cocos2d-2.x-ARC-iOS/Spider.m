@@ -8,9 +8,8 @@
 
 #import "Spider.h"
 #import "MultiLayerScene.h"
-
+#import "ScoreStore.h"
 @implementation Spider
-@synthesize scoreProcessor;
 // Static initializer, mimics cocos2d's memory allocation scheme.
 +(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos
 {
@@ -126,10 +125,10 @@
         isMoving=NO;
         isDroping=NO;
         //获得一分！
-        [scoreProcessor addScoreInLevel:0 earnedScore:1];
-        //[CCLOG(@"spider at x drop to ")];
+        [[ScoreStore sharedStore] addScoreAtLevel:0 earnedScore:1];
+        CCLOG(@"spider at x=%f droped to bottom, so add 1 score",spiderSprite.position.x);
     }];
-    //回调快：标记蜘蛛正在下坠
+    //回调块：标记蜘蛛正在下坠
     CCCallBlock* callStartDrop=[CCCallBlock actionWithBlock:^void() {
         isHanging= NO;
         isDroping=YES;

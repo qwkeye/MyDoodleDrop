@@ -9,9 +9,10 @@
 #import "LevelA.h"
 #import "SimpleAudioEngine.h"
 #import "Spider.h"
+#import "ScoreStore.h"
 
 @implementation LevelA
-@synthesize score,isGameOver;
+@synthesize isGameOver;
 +(id)scene
 {
     CCScene *scene=[CCScene node];
@@ -67,8 +68,6 @@
         CGPoint pos=CGPointMake(imageWidth*i + imageWidth*0.5f, screenSize.height+imageWidth);
         //创建蜘蛛对象
         Spider *spider=[Spider spiderWithParentNode:self position:pos];
-        //设置计分对象
-        spider.scoreProcessor=self;
         [spiders addObject:spider];
     }
     //重新摆放蜘蛛位置
@@ -185,8 +184,7 @@
 	//开始每帧更新
 	[self scheduleUpdate];
 	//重置分数
-	score = 0;
-    isGameOver=NO;
+	isGameOver=NO;
 }
 
 -(void)update:(ccTime)delta
@@ -327,9 +325,5 @@
     }
     [player resumeGame];
     [self resumeSchedulerAndActions];
-}
--(void)addScoreInLevel:(int)level earnedScore:(int)earnedScore
-{
-    score += earnedScore;
 }
 @end

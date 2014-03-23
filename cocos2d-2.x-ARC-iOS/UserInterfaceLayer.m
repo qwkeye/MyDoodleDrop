@@ -9,9 +9,8 @@
 #import "UserInterfaceLayer.h"
 #import "MultiLayerScene.h"
 #import "GameLayer.h"
-
+#import "ScoreStore.h"
 @implementation UserInterfaceLayer
-@synthesize score;
 -(id) init
 {
 	if ((self = [super init]))
@@ -88,10 +87,9 @@
 	CCLOG(@"%@: %@", NSStringFromSelector(_cmd), self);
 }
 
-// Updates the progress timer
 -(void) update:(ccTime)delta
 {
     //显示分数
-    [scoreLabel setString:[NSString stringWithFormat:@"%i",score]];
+    [scoreLabel setString:[NSString stringWithFormat:@"%i",[ScoreStore sharedStore].score]];
 }
 @end
