@@ -12,10 +12,11 @@
 @synthesize score;
 +(ScoreStore*)sharedStore
 {
-    static ScoreStore* scoreStore=nil;
-    if(!scoreStore){
+    static ScoreStore* scoreStore;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
         scoreStore=[[ScoreStore alloc] init];
-    }
+    });
     return scoreStore;
 }
 -(void)addScoreAtLevel:(int)level earnedScore:(int)earnedScore

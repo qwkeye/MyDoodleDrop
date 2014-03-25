@@ -10,6 +10,7 @@
 #import "LevelA01.h"
 #import "UserInterfaceLayer.h"
 #import "LoadingScene.h"
+
 @implementation MultiLayerScene
 //半单例模式：仅在MultiLayerScene是活动的场景时，才存取 MultiLayerScene。
 static MultiLayerScene* sharedMultiLayerScene = nil;
@@ -41,26 +42,15 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 		// The UserInterfaceLayer remains static and relative to the screen area.
 		UserInterfaceLayer* uiLayer = [UserInterfaceLayer node];
 		[self addChild:uiLayer z:2 tag:LayerTagUILayer];
+        
+        //设置GameKit
+        GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+		gkHelper.delegate = self;
+		[gkHelper authenticateLocalPlayer];
 	}
 	return self;
 }
-/**
- *  更新分数值
- */
--(void)updateScore
-{
-    //获得游戏层
-    CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
-    NSAssert1([layer1 isKindOfClass:[LevelA01 class]], @"not a LevelA01", 
-              NSStringFromSelector(_cmd));
-    //转换对象
-    LevelA01* gameLayer=(LevelA01*)layer1;
-    //获得用户界面层
-    CCNode* layer2=[self getChildByTag:LayerTagUILayer];
-    NSAssert1([layer2 isKindOfClass:[UserInterfaceLayer class]], @"not a UserInterfaceLayer", 
-              NSStringFromSelector(_cmd));
-    UserInterfaceLayer* uiLayer=(UserInterfaceLayer*)layer2;
-}
+
 /**
  *  将一个触摸事件转换为屏幕坐标？
  *
@@ -129,4 +119,47 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     //层即将销毁，为避免崩溃，将其设置为空
 	sharedMultiLayerScene = nil;
 }
+#pragma mark GameKitHelper delegate methods
+
+-(void) onLocalPlayerAuthenticationChanged
+{
+	GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
+	CCLOG(@"LocalPlayer isAuthenticated changed to: %@", localPlayer.authenticated ? @"YES" : @"NO");
+	
+	if (localPlayer.authenticated)
+	{
+		GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+		[gkHelper getLocalPlayerFriends];
+	}
+}
+
+-(void) onFriendListReceived:(NSArray*)friends
+{
+	CCLOG(@"onFriendListReceived: %@", friends.description);
+	
+	GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+	
+	if (friends.count > 0)
+	{
+		[gkHelper getPlayerInfo:friends];
+	}
+	else
+	{
+		[gkHelper submitScore:1234 category:@"Playtime"];
+	}
+}
+
+-(void) onPlayerInfoReceived:(NSArray*)players
+{
+	CCLOG(@"onPlayerInfoReceived: %@", players.description);
+	
+	for (GKPlayer* gkPlayer in players)
+	{
+		CCLOG(@"PlayerID: %@, Alias: %@, isFriend: %i", gkPlayer.playerID, gkPlayer.alias, gkPlayer.isFriend);
+	}
+	
+	GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+	[gkHelper submitScore:1234 category:@"Playtime"];
+}
+
 @end

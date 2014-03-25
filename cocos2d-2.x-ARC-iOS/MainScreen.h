@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface MainScreen : CCLayer {
+@interface MainScreen : CCLayer <GKAchievementViewControllerDelegate, GKLeaderboardViewControllerDelegate> {
     
 }
 +(id)scene;

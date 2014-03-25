@@ -8,6 +8,7 @@
 
 #import "MainScreen.h"
 #import "LoadingScene.h"
+#import "AppDelegate.h"
 
 @implementation MainScreen
 - (id)init
@@ -27,8 +28,23 @@
         CCMenuItemFont* itemAbout=[CCMenuItemFont itemWithString:@"About"
                                                             target:self
                                                           selector:@selector(menuItemAboutTouched)];
+        // Achievement Menu Item using blocks
+        CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
+            GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
+            achivementViewController.achievementDelegate = self;
+            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            [[app navController] presentModalViewController:achivementViewController animated:YES];
+        }];
+        
+        // Leaderboard Menu Item using blocks
+        CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
+            GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
+            leaderboardViewController.leaderboardDelegate = self;
+            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+            [[app navController] presentModalViewController:leaderboardViewController animated:YES];
+        }];
         //创建菜单
-        CCMenu* menu=[CCMenu menuWithItems:itemNewGame,itemAbout, nil];
+        CCMenu* menu=[CCMenu menuWithItems:itemNewGame, itemAchievement,itemLeaderboard,itemAbout, nil];
         //设置菜单位置
         menu.position=CGPointMake(screenSize.width/2, screenSize.height/2);
         //加入到场景
@@ -57,5 +73,18 @@
     CCLayer *layer=[MainScreen node];
     [scene addChild:layer];
     return scene;
+}
+#pragma mark GameKit delegate
+
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
+}
+
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
+	[[app navController] dismissModalViewControllerAnimated:YES];
 }
 @end
