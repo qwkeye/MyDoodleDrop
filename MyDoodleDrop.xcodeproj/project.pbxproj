@@ -12,6 +12,7 @@
 		4ACE36AF18CDFA0700E6124F /* MultiLayerScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE36AE18CDFA0700E6124F /* MultiLayerScene.m */; };
 		4ACE36B318CDFD8E00E6124F /* UserInterfaceLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ACE36B218CDFD8E00E6124F /* UserInterfaceLayer.m */; };
 		4ACE36B518CDFEA600E6124F /* ui-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ACE36B418CDFEA600E6124F /* ui-frame.png */; };
+		4AD1459718E10F650094E530 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD1459618E10F650094E530 /* GameKitHelper.m */; };
 		4AD5860918CAAE390066E3A5 /* spider-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860718CAAE390066E3A5 /* spider-hd.png */; };
 		4AD5860A18CAAE390066E3A5 /* spider.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5860818CAAE390066E3A5 /* spider.png */; };
 		4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4CC6318D02B60006BC632 /* LevelA.m */; };
@@ -289,6 +290,8 @@
 		4ACE36B118CDFD8E00E6124F /* UserInterfaceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInterfaceLayer.h; sourceTree = "<group>"; };
 		4ACE36B218CDFD8E00E6124F /* UserInterfaceLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInterfaceLayer.m; sourceTree = "<group>"; };
 		4ACE36B418CDFEA600E6124F /* ui-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ui-frame.png"; sourceTree = "<group>"; };
+		4AD1459518E10F650094E530 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		4AD1459618E10F650094E530 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
 		4AD5860718CAAE390066E3A5 /* spider-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "spider-hd.png"; sourceTree = "<group>"; };
 		4AD5860818CAAE390066E3A5 /* spider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spider.png; sourceTree = "<group>"; };
 		4AE4CC6218D02B60006BC632 /* LevelA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelA.h; sourceTree = "<group>"; };
@@ -648,6 +651,8 @@
 			children = (
 				DC0C4B78154AB4DF00B4B727 /* AppDelegate.h */,
 				DC0C4B79154AB4DF00B4B727 /* AppDelegate.m */,
+				4AD1459518E10F650094E530 /* GameKitHelper.h */,
+				4AD1459618E10F650094E530 /* GameKitHelper.m */,
 				4ACD52F618CDF33D00C8A352 /* Levels */,
 				DC0C4B93154AB59800B4B727 /* libs */,
 				6351136D18CE3DA100A8AFB7 /* LoadingScene.h */,
@@ -659,13 +664,13 @@
 				4AB5090618D7D86D00722556 /* Player.h */,
 				4AB5090718D7D86D00722556 /* Player.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
+				8B5AEB1518DF2EA9000060A5 /* ScoreStore.h */,
+				8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */,
 				4AFB3B4618D2959C00DC269E /* Spider.h */,
 				4AFB3B4718D2959C00DC269E /* Spider.m */,
 				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
 				4ACE36B118CDFD8E00E6124F /* UserInterfaceLayer.h */,
 				4ACE36B218CDFD8E00E6124F /* UserInterfaceLayer.m */,
-				8B5AEB1518DF2EA9000060A5 /* ScoreStore.h */,
-				8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */,
 			);
 			path = "cocos2d-2.x-ARC-iOS";
 			sourceTree = "<group>";
@@ -1295,6 +1300,7 @@
 				4AFB3B4818D2959C00DC269E /* Spider.m in Sources */,
 				8B5AEB1718DF2EA9000060A5 /* ScoreStore.m in Sources */,
 				4AB5090818D7D86D00722556 /* Player.m in Sources */,
+				4AD1459718E10F650094E530 /* GameKitHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
