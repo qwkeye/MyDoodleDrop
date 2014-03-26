@@ -315,7 +315,7 @@
 		DC0864B515BD8CE60044A820 /* CCNode+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+Debug.h"; sourceTree = "<group>"; };
 		DC0864B615BD8CE60044A820 /* CCNode+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+Debug.m"; sourceTree = "<group>"; };
 		DC0864B715BD8CE60044A820 /* ccCArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccCArray.m; sourceTree = "<group>"; };
-		DC0C49F1154AB4DD00B4B727 /* MyDoodleDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDoodleDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC0C49F1154AB4DD00B4B727 /* SpidersDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpidersDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0C49F5154AB4DD00B4B727 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DC0C49F7154AB4DD00B4B727 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		DC0C49F9154AB4DD00B4B727 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -624,7 +624,7 @@
 		DC0C49F2154AB4DD00B4B727 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC0C49F1154AB4DD00B4B727 /* MyDoodleDrop.app */,
+				DC0C49F1154AB4DD00B4B727 /* SpidersDrop.app */,
 				DC0C4B87154AB55A00B4B727 /* libcocos2d-library.a */,
 			);
 			name = Products;
@@ -1187,9 +1187,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DC0C49F0154AB4DD00B4B727 /* MyDoodleDrop */ = {
+		DC0C49F0154AB4DD00B4B727 /* SpidersDrop */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC0C4B80154AB4DF00B4B727 /* Build configuration list for PBXNativeTarget "MyDoodleDrop" */;
+			buildConfigurationList = DC0C4B80154AB4DF00B4B727 /* Build configuration list for PBXNativeTarget "SpidersDrop" */;
 			buildPhases = (
 				DC0C49ED154AB4DD00B4B727 /* Sources */,
 				DC0C49EE154AB4DD00B4B727 /* Frameworks */,
@@ -1199,9 +1199,9 @@
 			);
 			dependencies = (
 			);
-			name = MyDoodleDrop;
+			name = SpidersDrop;
 			productName = "cocos2d-2.x-ARC-iOS";
-			productReference = DC0C49F1154AB4DD00B4B727 /* MyDoodleDrop.app */;
+			productReference = DC0C49F1154AB4DD00B4B727 /* SpidersDrop.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DC0C4B86154AB55A00B4B727 /* cocos2d-library */ = {
@@ -1234,7 +1234,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC0C49EB154AB4DD00B4B727 /* Build configuration list for PBXProject "MyDoodleDrop" */;
+			buildConfigurationList = DC0C49EB154AB4DD00B4B727 /* Build configuration list for PBXProject "SpidersDrop" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1246,7 +1246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC0C49F0154AB4DD00B4B727 /* MyDoodleDrop */,
+				DC0C49F0154AB4DD00B4B727 /* SpidersDrop */,
 				DC0C4B86154AB55A00B4B727 /* cocos2d-library */,
 			);
 		};
@@ -1471,7 +1471,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = MyDoodleDrop;
+				PRODUCT_NAME = SpidersDrop;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1493,7 +1493,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = MyDoodleDrop;
+				PRODUCT_NAME = SpidersDrop;
 				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1539,7 +1539,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC0C49EB154AB4DD00B4B727 /* Build configuration list for PBXProject "MyDoodleDrop" */ = {
+		DC0C49EB154AB4DD00B4B727 /* Build configuration list for PBXProject "SpidersDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC0C4B7E154AB4DF00B4B727 /* Debug */,
@@ -1548,7 +1548,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC0C4B80154AB4DF00B4B727 /* Build configuration list for PBXNativeTarget "MyDoodleDrop" */ = {
+		DC0C4B80154AB4DF00B4B727 /* Build configuration list for PBXNativeTarget "SpidersDrop" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC0C4B81154AB4DF00B4B727 /* Debug */,
