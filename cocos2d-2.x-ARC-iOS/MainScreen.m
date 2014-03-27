@@ -9,7 +9,7 @@
 #import "MainScreen.h"
 #import "LoadingScene.h"
 #import "AppDelegate.h"
-
+#import "GameKitHelper.h"
 @implementation MainScreen
 - (id)init
 {
@@ -38,13 +38,16 @@
         
         // Leaderboard Menu Item using blocks
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-            GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-            leaderboardViewController.leaderboardDelegate = self;
-            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-            [[app navController] presentModalViewController:leaderboardViewController animated:YES];
-        }];
+            GameKitHelper* gkHelper=[GameKitHelper sharedGameKitHelper];
+            GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
+            if (localPlayer.authenticated)
+            {
+                [gkHelper showLeaderboard];
+            }else{
+                [gkHelper authenticateLocalPlayer];
+            }}];
         //创建菜单
-        CCMenu* menu=[CCMenu menuWithItems:itemNewGame, itemAchievement,itemLeaderboard,itemAbout, nil];
+        CCMenu* menu=[CCMenu menuWithItems:itemNewGame,itemLeaderboard,itemAbout, nil];
         //设置菜单位置
         menu.position=CGPointMake(screenSize.width/2, screenSize.height/2);
         //加入到场景

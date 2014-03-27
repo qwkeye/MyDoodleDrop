@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Player.h"
+#import "GameKitHelper.h"
+
 @interface LevelA : CCLayer {
     Player *player;       //玩家对象
     CGPoint playerVelocity; //玩家移动的速度

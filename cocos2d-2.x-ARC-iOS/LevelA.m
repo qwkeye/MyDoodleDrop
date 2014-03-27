@@ -304,6 +304,14 @@
 	CCBlink* blink = [CCBlink actionWithDuration:10 blinks:20];
 	CCRepeatForever* repeatBlink = [CCRepeatForever actionWithAction:blink];
 	[touch runAction:repeatBlink];
+    
+    //更新Game Center分数
+    GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
+	if (localPlayer.authenticated)
+	{
+		GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
+        [gkHelper submitScore:[[ScoreStore sharedStore] score] category:@"spidersdrop_best_score"];
+	}
 }
 
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

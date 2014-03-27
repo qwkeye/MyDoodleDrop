@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "GameKitHelper.h"
 typedef enum
 {
 	LayerTagGameLayer,
@@ -21,7 +20,7 @@ typedef enum
 	ActionTagGameLayerRotates,
 } MultiLayerSceneActionTags;
 
-@interface MultiLayerScene : CCLayer <GameKitHelperProtocol> {
+@interface MultiLayerScene :CCLayer {
 	BOOL isTouchForUserInterface;
 }
 +(CGPoint) locationFromTouch:(UITouch*)touch;

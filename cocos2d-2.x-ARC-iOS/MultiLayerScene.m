@@ -42,11 +42,6 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 		// The UserInterfaceLayer remains static and relative to the screen area.
 		UserInterfaceLayer* uiLayer = [UserInterfaceLayer node];
 		[self addChild:uiLayer z:2 tag:LayerTagUILayer];
-        
-        //设置GameKit
-        GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
-		gkHelper.delegate = self;
-		[gkHelper authenticateLocalPlayer];
 	}
 	return self;
 }
@@ -119,47 +114,4 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     //层即将销毁，为避免崩溃，将其设置为空
 	sharedMultiLayerScene = nil;
 }
-#pragma mark GameKitHelper delegate methods
-
--(void) onLocalPlayerAuthenticationChanged
-{
-	GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
-	CCLOG(@"LocalPlayer isAuthenticated changed to: %@", localPlayer.authenticated ? @"YES" : @"NO");
-	
-	if (localPlayer.authenticated)
-	{
-		GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
-		[gkHelper getLocalPlayerFriends];
-	}
-}
-
--(void) onFriendListReceived:(NSArray*)friends
-{
-	CCLOG(@"onFriendListReceived: %@", friends.description);
-	
-	GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
-	
-	if (friends.count > 0)
-	{
-		[gkHelper getPlayerInfo:friends];
-	}
-	else
-	{
-		[gkHelper submitScore:1234 category:@"Playtime"];
-	}
-}
-
--(void) onPlayerInfoReceived:(NSArray*)players
-{
-	CCLOG(@"onPlayerInfoReceived: %@", players.description);
-	
-	for (GKPlayer* gkPlayer in players)
-	{
-		CCLOG(@"PlayerID: %@, Alias: %@, isFriend: %i", gkPlayer.playerID, gkPlayer.alias, gkPlayer.isFriend);
-	}
-	
-	GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
-	[gkHelper submitScore:1234 category:@"Playtime"];
-}
-
 @end
