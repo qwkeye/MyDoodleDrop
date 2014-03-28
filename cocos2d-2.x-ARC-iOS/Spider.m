@@ -11,16 +11,17 @@
 #import "ScoreStore.h"
 @implementation Spider
 // Static initializer, mimics cocos2d's memory allocation scheme.
-+(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos
++(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos levelId:(NSString*)levelId
 {
-	return [[self alloc] initWithParentNode:parentNode position:pos];
+	return [[self alloc] initWithParentNode:parentNode position:pos levelId:levelId];
 }
 
--(id) initWithParentNode:(CCNode*)parentNode position:(CGPoint)pos
+-(id) initWithParentNode:(CCNode*)parentNode position:(CGPoint)pos levelId:(NSString*)lId
 {
 	if ((self = [super init]))
 	{
         CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
+        levelId=[NSString stringWithString:lId];
 		// 将自己添加到父节点
 		[parentNode addChild:self];
 		spiderSprite = [CCSprite spriteWithFile:@"spider.png"];

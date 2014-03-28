@@ -90,6 +90,6 @@
 -(void) update:(ccTime)delta
 {
     //显示分数
-    [scoreLabel setString:[NSString stringWithFormat:@"%i",[ScoreStore sharedStore].score]];
+    [scoreLabel setString:[NSString stringWithFormat:@"%i",[[ScoreStore sharedStore] getTotalScore]]];
 }
 @end

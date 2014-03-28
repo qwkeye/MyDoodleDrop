@@ -20,25 +20,27 @@
     BOOL isHanging;
     BOOL isDroping;
     BOOL isPausing;
+    NSString* levelId;  //关卡的ID，用于更新分数
 }
 /**
  *  通过父节点来创建新对象
  *
  *  @param parentNode 父节点
  *  @param pos        初始位置
+ *  @param levelId    关卡ID
  *
  *  @return 创建好的对象
  */
-+(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos;
++(id) spiderWithParentNode:(CCNode*)parentNode position:(CGPoint)pos levelId:(NSString*)levelId;
 /**
  *  通过父节点进行初始化
  *
  *  @param parentNode 父节点对象
  *  @param pos        初始位置
- *
+ *  @param levelId    关卡ID
  *  @return 初始化后的对象
  */
--(id) initWithParentNode:(CCNode*)parentNode position:(CGPoint)pos;
+-(id) initWithParentNode:(CCNode*)parentNode position:(CGPoint)pos levelId:(NSString*)levelId;
 /**
  *  重置蜘蛛
  */

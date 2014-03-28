@@ -9,7 +9,7 @@
 #import "ScoreStore.h"
 
 @implementation ScoreStore
-@synthesize score;
+
 +(ScoreStore*)sharedStore
 {
     static ScoreStore* scoreStore;
@@ -19,12 +19,41 @@
     });
     return scoreStore;
 }
--(void)addScoreAtLevel:(int)level earnedScore:(int)earnedScore
+- (id)init
 {
-    score+=earnedScore;
+    self = [super init];
+    if (self) {
+        scores=[NSMutableDictionary dictionaryWithCapacity:10];
+    }
+    return self;
 }
--(void)resetAtLevel:(int)level
+-(void)addScoreAtLevel:(NSString*)levelId earnedScore:(int)earnedScore
 {
-    score=0;
+    NSNumber *oldScore=[scores valueForKey:levelId];
+    if(oldScore==nil)
+        oldScore=[NSNumber numberWithInt:0];
+    NSNumber* newScore=[NSNumber numberWithInt:earnedScore+[oldScore intValue]];
+    [scores setValue:newScore forKey:levelId];
+}
+-(void)resetAtLevel:(NSString*)levelId
+{
+    NSNumber* newScore=[NSNumber numberWithInt:0];
+    [scores setValue:newScore forKey:levelId];
+}
+-(int)getLevelScore:(NSString *)levelId
+{
+    int score=0;
+    NSNumber *scoreValue=[scores valueForKey:levelId];
+    if(scoreValue==nil)
+        score=[scoreValue intValue];
+    return score;
+}
+-(int)getTotalScore
+{
+    int totla=0;
+    for (NSNumber* s in scores) {
+        totla+=[s intValue];
+    }
+    return totla;
 }
 @end

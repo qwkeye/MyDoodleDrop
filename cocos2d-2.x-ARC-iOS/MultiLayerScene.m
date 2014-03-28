@@ -40,10 +40,10 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
         gameLevel=level;
         //创建游戏层
         if([level isEqual:@"A02"]){
-            LevelA02* gameLayer = [LevelA02 node];
+            LevelA* gameLayer = [LevelA initWithLevelId:level moveDuration:2.0];
             [self addChild:gameLayer z:1 tag:LayerTagGameLayer];
         }else{
-            LevelA01* gameLayer = [LevelA01 node];
+            LevelA* gameLayer = [LevelA initWithLevelId:level moveDuration:5.0];
             [self addChild:gameLayer z:1 tag:LayerTagGameLayer];
         }
 		//创建用户界面层

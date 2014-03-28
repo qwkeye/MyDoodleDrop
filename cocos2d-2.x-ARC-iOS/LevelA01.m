@@ -15,6 +15,7 @@
     if (self) {
         //初始化：蜘蛛从顶端掉到底端的时间
         spiderMoveDuration=5.0f;
+        levelId=@"A01";
     }
     return self;
 }

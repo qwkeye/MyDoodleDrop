@@ -10,10 +10,34 @@
 
 @interface ScoreStore : NSObject
 {
-    
+    NSMutableDictionary* scores;
 }
 +(ScoreStore*)sharedStore;
--(void)addScoreAtLevel:(int)level earnedScore:(int)earnedScore;
--(void)resetAtLevel:(int)level;
-@property (readonly) int score;
+/**
+ *  增加分数
+ *
+ *  @param levelId     关卡ID
+ *  @param earnedScore 新增的分数
+ */
+-(void)addScoreAtLevel:(NSString*)levelId earnedScore:(int)earnedScore;
+/**
+ *  重置分数为零
+ *
+ *  @param levelId 关卡ID
+ */
+-(void)resetAtLevel:(NSString*)levelId;
+/**
+ *  获得所有关卡的总分数
+ *
+ *  @return 总分数
+ */
+-(int)getTotalScore;
+/**
+ *  获得某个关卡的分数
+ *
+ *  @param levelId 关卡ID
+ *
+ *  @return 分数
+ */
+-(int)getLevelScore:(NSString*)levelId;
 @end

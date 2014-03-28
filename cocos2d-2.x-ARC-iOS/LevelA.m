@@ -13,18 +13,17 @@
 
 @implementation LevelA
 @synthesize isGameOver;
-+(id)scene
++(id)initWithLevelId:(NSString *)levelId moveDuration:(float)dur
 {
-    CCScene *scene=[CCScene node];
-    CCLayer *layer=[LevelA node];
-    [scene addChild:layer];
-    return scene;
+    return [[self alloc] initWithLevelId:levelId moveDuration:dur];
 }
-- (id)init
+-(id)initWithLevelId:(NSString *)lId moveDuration:(float)dur
 {
     self = [super init];
     if (self) {
         CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
+        levelId=[NSString stringWithString:lId];
+        spiderMoveDuration=dur;
         //计算玩家对象的位置：将玩家对象摆放在屏幕底部中间位置
         CGSize screenSize=[CCDirector sharedDirector].winSize;
         float imageHeight=[Player getSize].height;
@@ -67,7 +66,7 @@
     for (int i=0; i<numSpiders; i++) {
         CGPoint pos=CGPointMake(imageWidth*i + imageWidth*0.5f, screenSize.height+imageWidth);
         //创建蜘蛛对象
-        Spider *spider=[Spider spiderWithParentNode:self position:pos];
+        Spider *spider=[Spider spiderWithParentNode:self position:pos levelId:levelId];
         [spiders addObject:spider];
     }
     //重新摆放蜘蛛位置
@@ -181,8 +180,9 @@
     self.isTouchEnabled = NO;
 	//开始每帧更新
 	[self scheduleUpdate];
-	//重置分数
 	isGameOver=NO;
+	//重置分数
+    [[ScoreStore sharedStore] resetAtLevel:levelId];
 }
 
 -(void)update:(ccTime)delta
@@ -308,7 +308,7 @@
 	if (localPlayer.authenticated)
 	{
 		GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
-        [gkHelper submitScore:[[ScoreStore sharedStore] score] category:@"spidersdrop_best_score"];
+        [gkHelper submitScore:[[ScoreStore sharedStore] getTotalScore] category:@"spidersdrop_best_score"];
 	}
 }
 
