@@ -8,6 +8,7 @@
 
 #import "MultiLayerScene.h"
 #import "LevelA01.h"
+#import "LevelA02.h"
 #import "UserInterfaceLayer.h"
 #import "LoadingScene.h"
 
@@ -36,7 +37,7 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 		NSAssert(sharedMultiLayerScene == nil, @"another MultiLayerScene is already in use!");
 		sharedMultiLayerScene = self;
         //创建游戏层
-		LevelA01* gameLayer = [LevelA01 node];
+		LevelA02* gameLayer = [LevelA02 node];
 		[self addChild:gameLayer z:1 tag:LayerTagGameLayer];
 		//创建用户界面层
 		// The UserInterfaceLayer remains static and relative to the screen area.

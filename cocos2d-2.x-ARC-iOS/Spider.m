@@ -126,7 +126,6 @@
         isDroping=NO;
         //获得一分！
         [[ScoreStore sharedStore] addScoreAtLevel:0 earnedScore:1];
-        CCLOG(@"spider at x=%f droped to bottom, so add 1 score",spiderSprite.position.x);
     }];
     //回调块：标记蜘蛛正在下坠
     CCCallBlock* callStartDrop=[CCCallBlock actionWithBlock:^void() {

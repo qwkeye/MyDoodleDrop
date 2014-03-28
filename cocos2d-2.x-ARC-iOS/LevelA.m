@@ -89,8 +89,6 @@
     [self schedule:@selector(spidersUpdate:) interval:0.7f];
     //初始化：移动的蜘蛛数量
     numSpidersMoved=0;
-    //初始化：蜘蛛从顶端掉到底端的时间
-    spiderMoveDuration=5.0f;
 }
 -(void)spidersUpdate:(ccTime)delta
 {

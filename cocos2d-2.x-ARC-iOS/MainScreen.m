@@ -10,6 +10,7 @@
 #import "LoadingScene.h"
 #import "AppDelegate.h"
 #import "GameKitHelper.h"
+#import "SelectLevel.h"
 @implementation MainScreen
 - (id)init
 {
@@ -28,18 +29,11 @@
         CCMenuItemFont* itemAbout=[CCMenuItemFont itemWithString:@"About"
                                                             target:self
                                                           selector:@selector(menuItemAboutTouched)];
-        // Achievement Menu Item using blocks
-        CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-            GKAchievementViewController *achivementViewController = [[GKAchievementViewController alloc] init];
-            achivementViewController.achievementDelegate = self;
-            AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-            [[app navController] presentModalViewController:achivementViewController animated:YES];
-        }];
-        
-        // Leaderboard Menu Item using blocks
+        //菜单：领先榜
         CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
             GameKitHelper* gkHelper=[GameKitHelper sharedGameKitHelper];
             GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
+            //这个方法有点问题，如果用户没登陆GC，则要点击本菜单多次才能出现LeaderBoard，后续需要改进
             if (localPlayer.authenticated)
             {
                 [gkHelper showLeaderboard];
@@ -62,14 +56,6 @@
     }
     return self;
 }
--(void)menuItemNewGameTouched
-{
-    [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneGame]];
-}
--(void)menuItemAboutTouched
-{
-    [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneAbout]];
-}
 +(id)scene
 {
     CCScene *scene=[CCScene node];
@@ -77,6 +63,16 @@
     [scene addChild:layer];
     return scene;
 }
+#pragma mark 菜单处理函数
+-(void)menuItemNewGameTouched
+{
+    [[CCDirector sharedDirector] replaceScene:[SelectLevel scene]];
+}
+-(void)menuItemAboutTouched
+{
+    [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneAbout]];
+}
+
 #pragma mark GameKit delegate
 
 -(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController

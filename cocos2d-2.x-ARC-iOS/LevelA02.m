@@ -1,20 +1,21 @@
 //
-//  LevelA01.m
-//  MyDoodleDrop
+//  LevelA02.m
+//  SpidersDrop
 //
-//  Created by rosen on 3/10/14.
+//  Created by rosen on 3/28/14.
 //  Copyright 2014 __MyCompanyName__. All rights reserved.
 //
 
-#import "LevelA01.h"
+#import "LevelA02.h"
 
-@implementation LevelA01
+
+@implementation LevelA02
 - (id)init
 {
     self = [super init];
     if (self) {
         //初始化：蜘蛛从顶端掉到底端的时间
-        spiderMoveDuration=5.0f;
+        spiderMoveDuration=2.0f;
     }
     return self;
 }
