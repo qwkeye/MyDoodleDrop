@@ -126,7 +126,7 @@
         isMoving=NO;
         isDroping=NO;
         //获得一分！
-        [[ScoreStore sharedStore] addScoreAtLevel:0 earnedScore:1];
+        [[ScoreStore sharedStore] addScoreAtLevel:levelId earnedScore:1];
     }];
     //回调块：标记蜘蛛正在下坠
     CCCallBlock* callStartDrop=[CCCallBlock actionWithBlock:^void() {

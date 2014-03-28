@@ -7,7 +7,7 @@
 //
 
 #import "ScoreStore.h"
-
+#import "cocos2d.h"
 @implementation ScoreStore
 
 +(ScoreStore*)sharedStore
@@ -34,6 +34,7 @@
         oldScore=[NSNumber numberWithInt:0];
     NSNumber* newScore=[NSNumber numberWithInt:earnedScore+[oldScore intValue]];
     [scores setValue:newScore forKey:levelId];
+    CCLOG(@"add score %d to level %@",earnedScore,levelId);
 }
 -(void)resetAtLevel:(NSString*)levelId
 {
@@ -51,8 +52,10 @@
 -(int)getTotalScore
 {
     int totla=0;
-    for (NSNumber* s in scores) {
-        totla+=[s intValue];
+    NSString* key;
+    for (key in scores) {
+        NSNumber* v=[scores valueForKey:key];
+        totla+=[v intValue];
     }
     return totla;
 }
