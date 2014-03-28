@@ -12,7 +12,7 @@
 #import "LevelA02.h"
 #import "UserInterfaceLayer.h"
 #import "LoadingScene.h"
-
+#import "SelectLevel.h"
 @implementation MultiLayerScene
 //半单例模式：仅在MultiLayerScene是活动的场景时，才存取 MultiLayerScene。
 static MultiLayerScene* sharedMultiLayerScene = nil;
@@ -89,7 +89,7 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
     //指针置空
     sharedMultiLayerScene=nil;
     //返回主菜单
-    [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneMain]];
+    [[CCDirector sharedDirector] replaceScene:[SelectLevel scene]];
 }
 -(BOOL)pauseGame
 {

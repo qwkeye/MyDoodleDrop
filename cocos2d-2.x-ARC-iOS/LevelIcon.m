@@ -9,7 +9,7 @@
 #import "LevelIcon.h"
 #import "MultiLayerScene.h"
 @implementation LevelIcon
--(id)initWithLevel:(int)level locked:(BOOL)locked position:(CGPoint)pos clickHandler:(void (^)(void))callback
+-(id)initWithLevel:(NSString*)level locked:(BOOL)locked position:(CGPoint)pos clickHandler:(void (^)(void))callback
 {
 	if ((self = [super init]))
 	{
@@ -24,9 +24,12 @@
         
 		[self addChild:backgroundSprite];
         //创建一个字符，显示第几关
-        CCLabelTTF* levelLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",level]
+        int fontSize=36;
+        if([level length]>3)
+            fontSize=24;
+        CCLabelTTF* levelLabel = [CCLabelTTF labelWithString:level
                                                     fontName:@"Marker Felt"
-                                                    fontSize:36];
+                                                    fontSize:fontSize];
         levelLabel.position=pos;
         [self addChild:levelLabel];
         //可以接收触摸事件

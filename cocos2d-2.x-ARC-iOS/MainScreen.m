@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "GameKitHelper.h"
 #import "SelectLevel.h"
+
 @implementation MainScreen
 - (id)init
 {
@@ -70,7 +71,7 @@
 }
 -(void)menuItemAboutTouched
 {
-    [[CCDirector sharedDirector] replaceScene:[LoadingScene sceneWithTargetScene:TargetSceneAbout]];
+    
 }
 
 #pragma mark GameKit delegate

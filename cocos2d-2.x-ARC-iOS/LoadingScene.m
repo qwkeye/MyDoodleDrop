@@ -38,10 +38,6 @@
 {
     //根据场景类型加载真正的场景
     switch (targetScene) {
-        case TargetSceneMain:
-            //加载主界面
-            [[CCDirector sharedDirector] replaceScene:[MainScreen scene]];
-            break;
         case TargetSceneGameLevelA01:
             //加载游戏：第一关
             [[CCDirector sharedDirector] replaceScene:[MultiLayerScene sceneWithLevel:@"A01"]];
@@ -49,9 +45,6 @@
         case TargetSceneGameLevelA02:
             //加载游戏：第二关
             [[CCDirector sharedDirector] replaceScene:[MultiLayerScene sceneWithLevel:@"A02"]];
-            break;
-        case TargetSceneAbout:
-            CCLOG(@"show about screen!");
             break;
         default:
             NSAssert2(nil, @"%@: unsupported TargetScene %i", NSStringFromSelector(_cmd), targetScene);

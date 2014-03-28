@@ -12,10 +12,8 @@
  
 typedef enum{
     TargetSceneINVALID=0,
-    TargetSceneMain,
     TargetSceneGameLevelA01,
     TargetSceneGameLevelA02,
-    TargetSceneAbout,
     TargetSceneMAX,
 }TargetSceneTypes;
 

@@ -13,7 +13,7 @@
     CCSprite* backgroundSprite;
     void (^touchHandler)(void);
 }
--(id)initWithLevel:(int)level
+-(id)initWithLevel:(NSString*)level
             locked:(BOOL)locked
           position:(CGPoint)pos
       clickHandler:(void(^)(void))callback;
