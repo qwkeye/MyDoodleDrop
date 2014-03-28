@@ -22,12 +22,13 @@ typedef enum
 
 @interface MultiLayerScene :CCLayer {
 	BOOL isTouchForUserInterface;
+    NSString* gameLevel;
 }
 +(CGPoint) locationFromTouch:(UITouch*)touch;
 +(CGPoint) locationFromTouches:(NSSet *)touches;
 // Accessor methods to access the various layers of this scene
 +(MultiLayerScene*) sharedLayer;
-+(id) scene;
++(id) sceneWithLevel:(NSString*)level;
 -(void)abortGame;
 /**
  *  暂停游戏

@@ -7,6 +7,7 @@
 //
 
 #import "MultiLayerScene.h"
+#import "LevelA.h"
 #import "LevelA01.h"
 #import "LevelA02.h"
 #import "UserInterfaceLayer.h"
@@ -19,26 +20,32 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 +(MultiLayerScene*) sharedLayer
 {
 	NSAssert(sharedMultiLayerScene != nil, @"MultiLayerScene not available!");
-        return sharedMultiLayerScene;
+    return sharedMultiLayerScene;
 }
 
-+(id) scene
++(id) sceneWithLevel:(NSString *)level
 {
 	CCScene* scene = [CCScene node];
-	MultiLayerScene* layer = [MultiLayerScene node];
+	MultiLayerScene* layer = [[MultiLayerScene alloc] initWithLevel:level];
 	[scene addChild:layer];
 	return scene;
 }
 
--(id) init
+-(id) initWithLevel:(NSString *)level
 {
 	if ((self = [super init]))
 	{
 		NSAssert(sharedMultiLayerScene == nil, @"another MultiLayerScene is already in use!");
 		sharedMultiLayerScene = self;
+        gameLevel=level;
         //创建游戏层
-		LevelA02* gameLayer = [LevelA02 node];
-		[self addChild:gameLayer z:1 tag:LayerTagGameLayer];
+        if([level isEqual:@"A02"]){
+            LevelA02* gameLayer = [LevelA02 node];
+            [self addChild:gameLayer z:1 tag:LayerTagGameLayer];
+        }else{
+            LevelA01* gameLayer = [LevelA01 node];
+            [self addChild:gameLayer z:1 tag:LayerTagGameLayer];
+        }
 		//创建用户界面层
 		// The UserInterfaceLayer remains static and relative to the screen area.
 		UserInterfaceLayer* uiLayer = [UserInterfaceLayer node];
@@ -88,10 +95,8 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 {
     //获得游戏层
     CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
-    NSAssert1([layer1 isKindOfClass:[LevelA01 class]], @"not a LevelA01",
-              NSStringFromSelector(_cmd));
     //转换对象
-    LevelA01* gameLayer=(LevelA01*)layer1;
+    id<LevelAProtocol> gameLayer=(id<LevelAProtocol>)layer1;
     if(gameLayer.isGameOver)
         return NO;
     else{
@@ -103,10 +108,8 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 {
     //获得游戏层
     CCNode* layer1=[self getChildByTag:LayerTagGameLayer];
-    NSAssert1([layer1 isKindOfClass:[LevelA01 class]], @"not a LevelA01",
-              NSStringFromSelector(_cmd));
     //转换对象
-    LevelA01* gameLayer=(LevelA01*)layer1;
+    id<LevelAProtocol> gameLayer=(id<LevelAProtocol>)layer1;
     [gameLayer resumeGame];
 }
 -(void) dealloc

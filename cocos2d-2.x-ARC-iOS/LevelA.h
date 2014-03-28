@@ -11,7 +11,13 @@
 #import "Player.h"
 #import "GameKitHelper.h"
 
-@interface LevelA : CCLayer {
+@protocol LevelAProtocol <NSObject>
+-(void)pauseGame;
+-(void)resumeGame;
+@property (readonly) BOOL isGameOver;
+@end
+
+@interface LevelA : CCLayer <LevelAProtocol> {
     Player *player;       //玩家对象
     CGPoint playerVelocity; //玩家移动的速度
     NSMutableArray *spiders;//蜘蛛数组
@@ -27,8 +33,5 @@
      3分，等等
      ============================*/
 }
-@property (readonly) BOOL isGameOver;
 +(id)scene;
--(void)pauseGame;
--(void)resumeGame;
 @end

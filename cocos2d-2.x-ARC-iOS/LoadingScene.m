@@ -42,9 +42,13 @@
             //加载主界面
             [[CCDirector sharedDirector] replaceScene:[MainScreen scene]];
             break;
-        case TargetSceneGame:
-            //加载游戏
-            [[CCDirector sharedDirector] replaceScene:[MultiLayerScene scene]];
+        case TargetSceneGameLevelA01:
+            //加载游戏：第一关
+            [[CCDirector sharedDirector] replaceScene:[MultiLayerScene sceneWithLevel:@"A01"]];
+            break;
+        case TargetSceneGameLevelA02:
+            //加载游戏：第二关
+            [[CCDirector sharedDirector] replaceScene:[MultiLayerScene sceneWithLevel:@"A02"]];
             break;
         case TargetSceneAbout:
             CCLOG(@"show about screen!");
