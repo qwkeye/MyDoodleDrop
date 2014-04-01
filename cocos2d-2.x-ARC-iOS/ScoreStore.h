@@ -40,4 +40,10 @@
  *  @return 分数
  */
 -(int)getLevelScore:(NSString*)levelId;
+/**
+ *  保存数据到文件中
+ *
+ *  @return 保存是否成功
+ */
+-(BOOL)saveData;
 @end

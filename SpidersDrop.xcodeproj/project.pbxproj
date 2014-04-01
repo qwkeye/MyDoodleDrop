@@ -32,7 +32,9 @@
 		63B947E018CCAD2B00779082 /* bitmapfont.png in Resources */ = {isa = PBXBuildFile; fileRef = 63B947DC18CCAD2B00779082 /* bitmapfont.png */; };
 		63B947E318CCC1F900779082 /* alien-sfx.caf in Resources */ = {isa = PBXBuildFile; fileRef = 63B947E118CCAF2B00779082 /* alien-sfx.caf */; };
 		63B947E418CCC1F900779082 /* blues.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63B947E218CCAF2B00779082 /* blues.mp3 */; };
+		8B3EE3B918EAA40C00C4F8C2 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3EE3B818EAA40C00C4F8C2 /* FileHelper.m */; };
 		8B5AEB1718DF2EA9000060A5 /* ScoreStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */; };
+		8B69EB1918EA544800041C1B /* LevelScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B69EB1818EA544800041C1B /* LevelScore.m */; };
 		DC0864B815BD8CE60044A820 /* CCNode+Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = DC0864B515BD8CE60044A820 /* CCNode+Debug.h */; };
 		DC0864B915BD8CE60044A820 /* CCNode+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B615BD8CE60044A820 /* CCNode+Debug.m */; };
 		DC0864BA15BD8CE60044A820 /* ccCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B715BD8CE60044A820 /* ccCArray.m */; };
@@ -321,8 +323,12 @@
 		63B947DC18CCAD2B00779082 /* bitmapfont.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bitmapfont.png; sourceTree = "<group>"; };
 		63B947E118CCAF2B00779082 /* alien-sfx.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "alien-sfx.caf"; sourceTree = "<group>"; };
 		63B947E218CCAF2B00779082 /* blues.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blues.mp3; sourceTree = "<group>"; };
+		8B3EE3B718EAA40C00C4F8C2 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
+		8B3EE3B818EAA40C00C4F8C2 /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
 		8B5AEB1518DF2EA9000060A5 /* ScoreStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStore.h; sourceTree = "<group>"; };
 		8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStore.m; sourceTree = "<group>"; };
+		8B69EB1718EA544800041C1B /* LevelScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScore.h; sourceTree = "<group>"; };
+		8B69EB1818EA544800041C1B /* LevelScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelScore.m; sourceTree = "<group>"; };
 		DC0864B515BD8CE60044A820 /* CCNode+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+Debug.h"; sourceTree = "<group>"; };
 		DC0864B615BD8CE60044A820 /* CCNode+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+Debug.m"; sourceTree = "<group>"; };
 		DC0864B715BD8CE60044A820 /* ccCArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ccCArray.m; sourceTree = "<group>"; };
@@ -617,10 +623,14 @@
 			children = (
 				4AE4CC6218D02B60006BC632 /* LevelA.h */,
 				4AE4CC6318D02B60006BC632 /* LevelA.m */,
-				4ABAC80918E51A1500015504 /* SelectLevel.h */,
-				4ABAC80A18E51A1500015504 /* SelectLevel.m */,
 				4ABAC80C18E51C5C00015504 /* LevelIcon.h */,
 				4ABAC80D18E51C5C00015504 /* LevelIcon.m */,
+				8B69EB1718EA544800041C1B /* LevelScore.h */,
+				8B69EB1818EA544800041C1B /* LevelScore.m */,
+				8B5AEB1518DF2EA9000060A5 /* ScoreStore.h */,
+				8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */,
+				4ABAC80918E51A1500015504 /* SelectLevel.h */,
+				4ABAC80A18E51A1500015504 /* SelectLevel.m */,
 			);
 			name = Levels;
 			sourceTree = "<group>";
@@ -677,13 +687,13 @@
 				4AB5090618D7D86D00722556 /* Player.h */,
 				4AB5090718D7D86D00722556 /* Player.m */,
 				DC0C4A08154AB4DD00B4B727 /* Resources */,
-				8B5AEB1518DF2EA9000060A5 /* ScoreStore.h */,
-				8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */,
 				4AFB3B4618D2959C00DC269E /* Spider.h */,
 				4AFB3B4718D2959C00DC269E /* Spider.m */,
 				DC0C4B74154AB4DF00B4B727 /* Supporting Files */,
 				4ACE36B118CDFD8E00E6124F /* UserInterfaceLayer.h */,
 				4ACE36B218CDFD8E00E6124F /* UserInterfaceLayer.m */,
+				8B3EE3B718EAA40C00C4F8C2 /* FileHelper.h */,
+				8B3EE3B818EAA40C00C4F8C2 /* FileHelper.m */,
 			);
 			path = "cocos2d-2.x-ARC-iOS";
 			sourceTree = "<group>";
@@ -1315,10 +1325,12 @@
 				6351136C18CE341600A8AFB7 /* MainScreen.m in Sources */,
 				6351136F18CE3DA100A8AFB7 /* LoadingScene.m in Sources */,
 				4ACE36AF18CDFA0700E6124F /* MultiLayerScene.m in Sources */,
+				8B3EE3B918EAA40C00C4F8C2 /* FileHelper.m in Sources */,
 				4ACE36B318CDFD8E00E6124F /* UserInterfaceLayer.m in Sources */,
 				4AE4CC6418D02B60006BC632 /* LevelA.m in Sources */,
 				4AFB3B4818D2959C00DC269E /* Spider.m in Sources */,
 				8B5AEB1718DF2EA9000060A5 /* ScoreStore.m in Sources */,
+				8B69EB1918EA544800041C1B /* LevelScore.m in Sources */,
 				4AB5090818D7D86D00722556 /* Player.m in Sources */,
 				4AD1459718E10F650094E530 /* GameKitHelper.m in Sources */,
 				4ABAC80B18E51A1500015504 /* SelectLevel.m in Sources */,

@@ -310,6 +310,8 @@
 		GameKitHelper* gkHelper = [GameKitHelper sharedGameKitHelper];
         [gkHelper submitScore:[[ScoreStore sharedStore] getTotalScore] category:@"spidersdrop_best_score"];
 	}
+    //保存分数数据
+    [[ScoreStore sharedStore] saveData];
 }
 
 -(void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
