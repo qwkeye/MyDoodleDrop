@@ -15,8 +15,29 @@
 
 -(id)initWithLevelId:(NSString*)levelId Score:(int)score IsFinished:(BOOL)isFinished
 {
+    //检查参数
+    if (levelId==nil) {
+        NSException *e=[NSException exceptionWithName:@"Nil Exception"
+                                               reason:@"levelId is nil"
+                                             userInfo:nil];
+        @throw e;
+    }
+    if ([levelId length]==0) {
+        NSException *e=[NSException exceptionWithName:@"Empty Exception"
+                                               reason:@"levelId is empty"
+                                             userInfo:nil];
+        @throw e;
+    }
+    //对LevelID进行trim操作
+    NSString *trimString=[levelId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if([trimString length]==0){
+        NSException *e=[NSException exceptionWithName:@"Empty Exception"
+                                               reason:@"levelId is empty"
+                                             userInfo:nil];
+        @throw e;
+    }
     if(self=[super init]){
-        _levelId=[levelId copy];
+        _levelId=[trimString copy];
         _score=score;
         _isFinished=isFinished;
     }
