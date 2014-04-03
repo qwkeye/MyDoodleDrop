@@ -50,6 +50,11 @@
         oldScore.score=0;
     }
 }
+-(void)resetAll
+{
+    //重建分数字典
+    scores=[[NSMutableDictionary alloc] initWithCapacity:10];
+}
 -(int)getLevelScore:(NSString *)levelId
 {
     int score=0;

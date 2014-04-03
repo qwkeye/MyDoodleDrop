@@ -27,6 +27,10 @@
  */
 -(void)resetAtLevel:(NSString*)levelId;
 /**
+ *  删除所有的分数
+ */
+-(void)resetAll;
+/**
  *  获得所有关卡的总分数
  *
  *  @return 总分数

@@ -42,7 +42,6 @@
 		8BD1209C18EB0FB3003A05C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0C4A01154AB4DD00B4B727 /* Foundation.framework */; };
 		8BD1209D18EB0FB3003A05C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0C49FF154AB4DD00B4B727 /* UIKit.framework */; };
 		8BD120A318EB0FB3003A05C8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BD120A118EB0FB3003A05C8 /* InfoPlist.strings */; };
-		8BD120A518EB0FB3003A05C8 /* SpidersDrop_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD120A418EB0FB3003A05C8 /* SpidersDrop_Tests.m */; };
 		DC0864B815BD8CE60044A820 /* CCNode+Debug.h in Headers */ = {isa = PBXBuildFile; fileRef = DC0864B515BD8CE60044A820 /* CCNode+Debug.h */; };
 		DC0864B915BD8CE60044A820 /* CCNode+Debug.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B615BD8CE60044A820 /* CCNode+Debug.m */; };
 		DC0864BA15BD8CE60044A820 /* ccCArray.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0864B715BD8CE60044A820 /* ccCArray.m */; };
@@ -355,7 +354,6 @@
 		8BD1209A18EB0FB3003A05C8 /* SpidersDrop Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SpidersDrop Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BD120A018EB0FB3003A05C8 /* SpidersDrop Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpidersDrop Tests-Info.plist"; sourceTree = "<group>"; };
 		8BD120A218EB0FB3003A05C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8BD120A418EB0FB3003A05C8 /* SpidersDrop_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpidersDrop_Tests.m; sourceTree = "<group>"; };
 		8BD120A618EB0FB3003A05C8 /* SpidersDrop Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpidersDrop Tests-Prefix.pch"; sourceTree = "<group>"; };
 		DC0864B515BD8CE60044A820 /* CCNode+Debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+Debug.h"; sourceTree = "<group>"; };
 		DC0864B615BD8CE60044A820 /* CCNode+Debug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+Debug.m"; sourceTree = "<group>"; };
@@ -678,7 +676,6 @@
 			children = (
 				8B82DFCA18EBA11800EAB225 /* FileHelperTests.m */,
 				8B82DFCC18EBA2EA00EAB225 /* LevelScoreTests.m */,
-				8BD120A418EB0FB3003A05C8 /* SpidersDrop_Tests.m */,
 				8BD1209F18EB0FB3003A05C8 /* Supporting Files */,
 				8B91462B18EBBD63002FF42F /* ScoreStoreTests.m */,
 			);
@@ -1415,7 +1412,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B91462C18EBBD63002FF42F /* ScoreStoreTests.m in Sources */,
-				8BD120A518EB0FB3003A05C8 /* SpidersDrop_Tests.m in Sources */,
 				8B82DFCB18EBA11800EAB225 /* FileHelperTests.m in Sources */,
 				8B82DFCD18EBA2EA00EAB225 /* LevelScoreTests.m in Sources */,
 			);
