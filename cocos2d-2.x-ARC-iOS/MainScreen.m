@@ -11,12 +11,14 @@
 #import "AppDelegate.h"
 #import "GameKitHelper.h"
 #import "SelectLevel.h"
+#import "AboutScreen.h"
 
 @implementation MainScreen
 - (id)init
 {
     self = [super init];
     if (self) {
+        CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
         //创建菜单
         CGSize screenSize=[CCDirector sharedDirector].winSize;
         //设置菜单项的字体名称
@@ -64,6 +66,10 @@
     [scene addChild:layer];
     return scene;
 }
+- (void)dealloc
+{
+    CCLOG(@"%@: %@",NSStringFromSelector(_cmd),self);
+}
 #pragma mark 菜单处理函数
 -(void)menuItemNewGameTouched
 {
@@ -71,7 +77,7 @@
 }
 -(void)menuItemAboutTouched
 {
-    
+    [[CCDirector sharedDirector] replaceScene:[AboutScreen scene]];
 }
 
 #pragma mark GameKit delegate
