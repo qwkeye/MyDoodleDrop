@@ -57,7 +57,12 @@
 +(GameKitHelper*) sharedGameKitHelper;
 
 // Player authentication, info
--(void) authenticateLocalPlayer;
+/**
+ *  用户登录
+ *
+ *  @param actionAfterAuth 登录成功后的动作，可以是load_achievements,show_leaderboard,show_achievements,
+ */
+-(void) authenticateLocalPlayer:(NSString*)actionAfterAuth;
 -(void) getLocalPlayerFriends;
 -(void) getPlayerInfo:(NSArray*)players;
 

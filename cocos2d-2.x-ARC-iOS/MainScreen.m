@@ -33,16 +33,9 @@
                                                             target:self
                                                           selector:@selector(menuItemAboutTouched)];
         //菜单：领先榜
-        CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-            GameKitHelper* gkHelper=[GameKitHelper sharedGameKitHelper];
-            GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
-            //这个方法有点问题，如果用户没登陆GC，则要点击本菜单多次才能出现LeaderBoard，后续需要改进
-            if (localPlayer.authenticated)
-            {
-                [gkHelper showLeaderboard];
-            }else{
-                [gkHelper authenticateLocalPlayer];
-            }}];
+        CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard"
+                                                              target:self
+                                                            selector:@selector(menuItemLeaderboardTouched)];
         //创建菜单
         CCMenu* menu=[CCMenu menuWithItems:itemNewGame,itemLeaderboard,itemAbout, nil];
         //设置菜单位置
@@ -79,7 +72,15 @@
 {
     [[CCDirector sharedDirector] replaceScene:[AboutScreen scene]];
 }
-
+-(void)menuItemLeaderboardTouched
+{
+    GameKitHelper* gkHelper=[GameKitHelper sharedGameKitHelper];
+    GKLocalPlayer* localPlayer = GKLocalPlayer.localPlayer;
+	if (localPlayer.authenticated == NO)
+        [gkHelper authenticateLocalPlayer:@"show_leaderboard"];
+    else
+        [gkHelper showLeaderboard];
+}
 #pragma mark GameKit delegate
 
 -(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController

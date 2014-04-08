@@ -76,7 +76,7 @@
 
 #pragma mark Player Authentication
 
--(void) authenticateLocalPlayer
+-(void) authenticateLocalPlayer:(NSString*)actionAfterAuth
 {
 	if (isGameCenterAvailable == NO)
 		return;
@@ -92,7 +92,14 @@
 			
 			if (error == nil)
 			{
-				[self loadAchievements];
+                if (actionAfterAuth!=nil) {
+                    if([actionAfterAuth isEqualToString:@"load_achievements"])
+                        [self loadAchievements];
+                    else if([actionAfterAuth isEqualToString:@"show_leaderboard"])
+                        [self showLeaderboard];
+                    else if([actionAfterAuth isEqualToString:@"show_achievements"])
+                        [self showAchievements];
+                }
 			}
 		}];
 	}
