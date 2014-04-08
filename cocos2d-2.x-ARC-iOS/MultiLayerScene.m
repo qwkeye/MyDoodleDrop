@@ -54,32 +54,17 @@ static MultiLayerScene* sharedMultiLayerScene = nil;
 	return self;
 }
 
-/**
- *  将一个触摸事件转换为屏幕坐标？
- *
- *  @param touch UITouch对象
- *
- *  @return 一个CGPoint，代表屏幕坐标
- */
 +(CGPoint) locationFromTouch:(UITouch*)touch
 {
 	CGPoint touchLocation = [touch locationInView: [touch view]];
 	return [[CCDirector sharedDirector] convertToGL:touchLocation];
 }
-/**
- *  将多个触摸事件转换为屏幕坐标
- *
- *  @param touches 多个UITouch对象
- *
- *  @return 一个CGPoint，代表屏幕坐标
- */
+
 +(CGPoint) locationFromTouches:(NSSet*)touches
 {
 	return [self locationFromTouch:[touches anyObject]];
 }
-/**
- *  退出当前关卡，返回主菜单
- */
+
 -(void)abortGame
 {
     //停止所有更新
