@@ -34,6 +34,7 @@
 		63B947E318CCC1F900779082 /* alien-sfx.caf in Resources */ = {isa = PBXBuildFile; fileRef = 63B947E118CCAF2B00779082 /* alien-sfx.caf */; };
 		63B947E418CCC1F900779082 /* blues.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 63B947E218CCAF2B00779082 /* blues.mp3 */; };
 		8B3EE3B918EAA40C00C4F8C2 /* FileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3EE3B818EAA40C00C4F8C2 /* FileHelper.m */; };
+		8B57C75118F79ABA0064DC1A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B57C75018F79ABA0064DC1A /* Default-568h@2x.png */; };
 		8B5AEB1718DF2EA9000060A5 /* ScoreStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */; };
 		8B69EB1918EA544800041C1B /* LevelScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B69EB1818EA544800041C1B /* LevelScore.m */; };
 		8B82DFCB18EBA11800EAB225 /* FileHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B82DFCA18EBA11800EAB225 /* FileHelperTests.m */; };
@@ -345,6 +346,7 @@
 		63B947E218CCAF2B00779082 /* blues.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blues.mp3; sourceTree = "<group>"; };
 		8B3EE3B718EAA40C00C4F8C2 /* FileHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileHelper.h; sourceTree = "<group>"; };
 		8B3EE3B818EAA40C00C4F8C2 /* FileHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileHelper.m; sourceTree = "<group>"; };
+		8B57C75018F79ABA0064DC1A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8B5AEB1518DF2EA9000060A5 /* ScoreStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreStore.h; sourceTree = "<group>"; };
 		8B5AEB1618DF2EA9000060A5 /* ScoreStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreStore.m; sourceTree = "<group>"; };
 		8B69EB1718EA544800041C1B /* LevelScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelScore.h; sourceTree = "<group>"; };
@@ -783,10 +785,6 @@
 		DC0C4A08154AB4DD00B4B727 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4AC2299518E52702008A6C15 /* level_icon_locked.png */,
-				4AC2299618E52702008A6C15 /* level_icon_locked@2x.png */,
-				4AC2299718E52702008A6C15 /* level_icon.png */,
-				4AC2299818E52702008A6C15 /* level_icon@2x.png */,
 				6339E2A218CA6BBD002638F3 /* alien-hd.png */,
 				63B947E118CCAF2B00779082 /* alien-sfx.caf */,
 				6339E2A318CA6BBD002638F3 /* alien.png */,
@@ -795,6 +793,7 @@
 				63B947DB18CCAD2B00779082 /* bitmapfont.fnt */,
 				63B947DC18CCAD2B00779082 /* bitmapfont.png */,
 				63B947E218CCAF2B00779082 /* blues.mp3 */,
+				8B57C75018F79ABA0064DC1A /* Default-568h@2x.png */,
 				DC0C4A09154AB4DD00B4B727 /* Default.png */,
 				DC0C4A0D154AB4DD00B4B727 /* fps_images-hd.png */,
 				DC0C4A0F154AB4DD00B4B727 /* fps_images-ipadhd.png */,
@@ -807,6 +806,10 @@
 				DC0C4A1B154AB4DD00B4B727 /* Icon@2x.png */,
 				DC0C4A1D154AB4DD00B4B727 /* Info.plist */,
 				DC0C4A1E154AB4DD00B4B727 /* iTunesArtwork */,
+				4AC2299718E52702008A6C15 /* level_icon.png */,
+				4AC2299818E52702008A6C15 /* level_icon@2x.png */,
+				4AC2299518E52702008A6C15 /* level_icon_locked.png */,
+				4AC2299618E52702008A6C15 /* level_icon_locked@2x.png */,
 				4AD5860718CAAE390066E3A5 /* spider-hd.png */,
 				4AD5860818CAAE390066E3A5 /* spider.png */,
 				4ACE36B418CDFEA600E6124F /* ui-frame.png */,
@@ -1407,6 +1410,7 @@
 				DC0C4A16154AB4DD00B4B727 /* Icon-Small.png in Resources */,
 				DC0C4A18154AB4DD00B4B727 /* Icon-Small@2x.png in Resources */,
 				DC0C4A1A154AB4DD00B4B727 /* Icon.png in Resources */,
+				8B57C75118F79ABA0064DC1A /* Default-568h@2x.png in Resources */,
 				DC0C4A1C154AB4DD00B4B727 /* Icon@2x.png in Resources */,
 				DC0C4A1F154AB4DD00B4B727 /* iTunesArtwork in Resources */,
 				6339E2A418CA6BBD002638F3 /* alien-hd.png in Resources */,
