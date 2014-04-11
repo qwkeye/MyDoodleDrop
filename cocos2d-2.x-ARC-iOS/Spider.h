@@ -8,7 +8,7 @@
 
 #import "cocos2d.h"
 
-@interface Spider : CCNode <CCTargetedTouchDelegate>
+@interface Spider : CCNode <CCTouchOneByOneDelegate>
 {
 	// Adding a CCSprite as member variable instead of subclassing from it.
 	// This is called composition or aggregation of objects, in contrast to subclassing or inheritance.

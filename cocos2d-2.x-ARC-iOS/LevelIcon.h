@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface LevelIcon : CCNode <CCTargetedTouchDelegate> {
+@interface LevelIcon : CCNode <CCTouchOneByOneDelegate> {
     CCSprite* backgroundSprite;
     void (^touchHandler)(void);
 }
